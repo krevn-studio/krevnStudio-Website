@@ -306,6 +306,35 @@
       flex: 1;
     }
 
+    .card-credit {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .card-credit b { color: var(--cream); font-weight: 500; }
+
+    /* ── TEAM ── */
+    .team { padding-top: 0; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .member {
+      display: flex; align-items: center; gap: 1.1rem;
+      padding: 1.6rem;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--card-a), var(--card-b));
+    }
+    .member-avatar {
+      flex: none; width: 56px; height: 56px; border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      color: var(--cream); background: rgba(157, 176, 124, 0.18);
+      border: 1px solid rgba(157, 176, 124, 0.45);
+    }
+    .member-name { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.15; }
+    .member-role { margin-top: 0.25rem; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); }
+    .member-work { margin-top: 0.4rem; font-size: 0.8rem; color: var(--muted); }
+
     .card-foot {
       display: flex;
       flex-wrap: wrap;
@@ -470,6 +499,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
       .hero { grid-template-columns: 1fr; text-align: left; padding-top: 6.5rem; gap: 2.5rem; }
       .hero-art { order: -1; justify-content: flex-start; }
       .hero-logo { width: min(210px, 52vw); }
@@ -483,6 +513,7 @@
       .apps { padding-top: 4rem; padding-bottom: 5rem; }
       .websites { padding-top: 0; }
       .apps-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
       .card { padding: 1.7rem; }
       footer { flex-direction: column; align-items: flex-start; }
       .sprig { width: 200px; right: -50px; opacity: 0.1; }
@@ -504,6 +535,7 @@
       <ul class="nav-links">
         <li><a href="#apps" data-i18n="nav_apps">Apps</a></li>
         <li><a href="#websites" data-i18n="nav_websites">Websites</a></li>
+        <li><a href="#team" data-i18n="nav_team">Team</a></li>
         <li><a href="#studio" data-i18n="nav_studio">Studio</a></li>
         <li><a href="#support" data-i18n="nav_support">Support</a></li>
       </ul>
@@ -545,6 +577,7 @@
         <h3 class="card-title">Micro Viaggi del Tempo</h3>
         <p class="card-subtitle">Piccoli viaggi. Grandi scoperte.</p>
         <p class="card-desc" data-i18n="mv_desc">Interactive micro-journeys through history. Choose an era, explore real events through dense narrative, collect medals. An entirely different way to experience the past — including an Echoes Mode that places you inside the story, written in first person.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="mv_platform">iOS · Free + €2.99 one-time</span>
           <div class="card-links">
@@ -563,6 +596,7 @@
         <h3 class="card-title">Aethel</h3>
         <p class="card-subtitle">Allenati con intelligenza.</p>
         <p class="card-desc" data-i18n="ae_desc">The training app that bridges weights, powerbuilding, and calisthenics in one coherent system. Real-time muscle fatigue tracking, an RPG-style skill tree for progressions, and structured programming built around how your body actually recovers.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="ae_platform">iPhone · Android</span>
           <div class="card-links">
@@ -581,6 +615,7 @@
         <div class="card-tag" data-i18n="re_tag">Archive · Objects</div>
         <h3 class="card-title">Relics</h3>
         <p class="card-desc" data-i18n="re_desc">A digital archive of forgotten objects, dead technologies and lost civilizations. Over a hundred relics to explore, each with its own illustration and story.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="re_platform">iOS · Coming soon</span>
         </div>
@@ -595,6 +630,7 @@
         <div class="card-tag" data-i18n="ri_tag">Documents · Deadlines</div>
         <h3 class="card-title">Rinnova</h3>
         <p class="card-desc" data-i18n="ri_desc">Keep track of your documents and cards and see how many days are left before each one expires.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="ri_platform">iOS</span>
           <div class="card-links">
@@ -624,6 +660,7 @@
         <div class="card-tag" data-i18n="gn_tag">Music · Mood</div>
         <h3 class="card-title">Krevn Genres</h3>
         <p class="card-desc" data-i18n="gn_desc">Listens to a preview of your favourite Spotify tracks and sorts them into folders by mood: lonely, golden hour, feel good, party, dark. It runs entirely in your browser: no server, nothing saved.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="gn_platform">Web · Free</span>
           <div class="card-links">
@@ -642,11 +679,38 @@
         <div class="card-tag" data-i18n="cc_tag">Games · Cards</div>
         <h3 class="card-title">Krevn Cards</h3>
         <p class="card-desc" data-i18n="cc_desc">Play the best Italian card games online with your friends: Cactus, Bisca, Dubito, Tre Sette, Scopa and Briscola.</p>
+        <p class="card-credit"><span data-i18n="dev_by">Developed by</span> <b>Gabriele Serli</b></p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="cc_platform">Web · Coming soon</span>
         </div>
       </article>
 
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="apps team" id="team">
+    <div class="section-head fade-up">
+      <div class="eyebrow" data-i18n="team_eyebrow">Team</div>
+      <h2 class="section-title" data-i18n-html="team_title">Three people.<br><em>One studio.</em></h2>
+    </div>
+    <div class="team-grid">
+      <article class="member fade-up">
+        <div class="member-avatar" aria-hidden="true">GT</div>
+        <div>
+          <div class="member-name">GianMattia Torrente</div>
+          <div class="member-role" data-i18n="role_ceo">Founder · CEO</div>
+          <div class="member-work">Micro Viaggi, Aethel, Relics, Rinnova, Krevn Genres</div>
+        </div>
+      </article>
+      <article class="member fade-up">
+        <div class="member-avatar" aria-hidden="true">GS</div>
+        <div>
+          <div class="member-name">Gabriele Serli</div>
+          <div class="member-role" data-i18n="role_dev">Developer</div>
+          <div class="member-work">Krevn Cards</div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -673,7 +737,7 @@
         <h2 class="studio-title" data-i18n-html="studio_title">Small.<br><em>Deliberate.</em><br>Obsessed.</h2>
       </div>
       <div class="studio-body fade-up">
-        <p data-i18n-html="studio_p1"><strong>Krevn Studio is an independent one-person studio based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.</p>
+        <p data-i18n-html="studio_p1"><strong>Krevn Studio is a small independent studio of three, based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.</p>
         <p data-i18n-html="studio_p2">The name carries a certain weight on purpose. Each project under this label is meant to feel like an <strong>artifact</strong>: something made with enough care that it earns a place in your life, not just a slot on your homescreen.</p>
         <p class="studio-close" data-i18n="studio_close">The studio is the umbrella. The apps are the work.</p>
         <a class="studio-ig" href="https://www.instagram.com/studiokrevn/" target="_blank" rel="noopener">Instagram @studiokrevn ↗</a>
@@ -738,10 +802,16 @@
         cc_platform: "Web · Coming soon",
         studio_eyebrow: "Studio",
         studio_title: "Small.<br><em>Deliberate.</em><br>Obsessed.",
-        studio_p1: "<strong>Krevn Studio is an independent one-person studio based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.",
+        studio_p1: "<strong>Krevn Studio is a small independent studio of three, based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.",
         studio_p2: "The name carries a certain weight on purpose. Each project under this label is meant to feel like an <strong>artifact</strong>: something made with enough care that it earns a place in your life, not just a slot on your homescreen.",
         studio_close: "The studio is the umbrella. The apps are the work.",
         nav_support: "Support",
+        nav_team: "Team",
+        dev_by: "Developed by",
+        team_eyebrow: "Team",
+        team_title: "Three people.<br><em>One studio.</em>",
+        role_ceo: "Founder · CEO",
+        role_dev: "Developer",
         support_eyebrow: "Support",
         support_title: "Need help?<br><em>Send an email.</em>",
         support_sub: "For questions, bugs or feedback on any of the apps, write to this address. Mention the app name and your device.",
@@ -783,10 +853,16 @@
         cc_platform: "Web · Prossimamente",
         studio_eyebrow: "Studio",
         studio_title: "Piccolo.<br><em>Deliberato.</em><br>Ossessivo.",
-        studio_p1: "<strong>Krevn Studio è uno studio indipendente di una persona con base in Italia.</strong> Ogni app è concepita, progettata e costruita da zero — nessun template, nessuna scorciatoia.",
+        studio_p1: "<strong>Krevn Studio è un piccolo studio indipendente di tre persone, con base in Italia.</strong> Ogni app è concepita, progettata e costruita da zero — nessun template, nessuna scorciatoia.",
         studio_p2: "Il nome porta un certo peso di proposito. Ogni progetto sotto questo marchio è pensato per sembrare un <strong>artefatto</strong>: qualcosa fatto con cura sufficiente da guadagnarsi un posto nella tua vita, non solo uno slot sulla homescreen.",
         studio_close: "Lo studio è l'ombrello. Le app sono il lavoro.",
         nav_support: "Supporto",
+        nav_team: "Team",
+        dev_by: "Sviluppo:",
+        team_eyebrow: "Team",
+        team_title: "Tre persone.<br><em>Uno studio.</em>",
+        role_ceo: "Fondatore · CEO",
+        role_dev: "Sviluppatore",
         support_eyebrow: "Supporto",
         support_title: "Serve aiuto?<br><em>Scrivi una mail.</em>",
         support_sub: "Per domande, bug o feedback su una qualsiasi app, scrivi a questo indirizzo. Indica il nome dell'app e il tuo dispositivo.",
