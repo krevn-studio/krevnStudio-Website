@@ -331,15 +331,6 @@
     /* ── WEBSITES ── */
     .websites { padding-top: 0; }
 
-    /* Placeholder until icons/genres.png exists: swap the div for <img class="card-icon" src="icons/genres.png" ...> */
-    .card-icon-ph {
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, #1b3a2a, #10281D);
-      border: 1px solid var(--line);
-      color: var(--sage);
-    }
-    .card-icon-ph svg { width: 34px; height: 34px; }
 
     /* ── STUDIO ── */
     .studio {
@@ -606,6 +597,9 @@
         <p class="card-desc" data-i18n="ri_desc">Keep track of your documents and cards and see how many days are left before each one expires.</p>
         <div class="card-foot">
           <span class="card-platform" data-i18n="ri_platform">iOS</span>
+          <div class="card-links">
+            <a class="btn btn-ghost" href="https://apps.apple.com/it/app/rinnova-scadenze-e-attestati/id6826930326" target="_blank" rel="noopener">App Store ↗</a>
+          </div>
         </div>
       </article>
 
@@ -624,9 +618,7 @@
       <!-- Krevn Genres -->
       <article class="card fade-up">
         <div class="card-top">
-          <div class="card-icon card-icon-ph" role="img" aria-label="Krevn Genres">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          </div>
+          <img class="card-icon" src="icons/genres.png" alt="Krevn Genres" width="72" height="72" loading="lazy">
           <span class="pill pill-live"><span class="pill-dot"></span><span data-i18n="status_oss">Open source</span></span>
         </div>
         <div class="card-tag" data-i18n="gn_tag">Music · Playlists</div>
@@ -637,6 +629,20 @@
           <div class="card-links">
             <a class="btn btn-ghost" href="https://github.com/krevn-studio/spotifyGenres" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
+        </div>
+      </article>
+
+      <!-- Krevn Cards -->
+      <article class="card fade-up">
+        <div class="card-top">
+          <img class="card-icon" src="icons/cards.png" alt="Krevn Cards" width="72" height="72" loading="lazy">
+          <span class="pill pill-dev"><span class="pill-dot"></span><span data-i18n="status_dev">In development</span></span>
+        </div>
+        <div class="card-tag" data-i18n="cc_tag">Games · Cards</div>
+        <h3 class="card-title">Krevn Cards</h3>
+        <p class="card-desc" data-i18n="cc_desc">Play the best Italian card games online with your friends: Cactus, Bisca, Dubito, Tre Sette, Scopa and Briscola.</p>
+        <div class="card-foot">
+          <span class="card-platform" data-i18n="cc_platform">Web · Coming soon</span>
         </div>
       </article>
 
@@ -725,6 +731,9 @@
         gn_tag: "Music · Playlists",
         gn_desc: "Sorts your favourite Spotify tracks into folders by genre. It runs entirely in your browser: no server, nothing saved. Log in with your own Spotify app or upload your data export.",
         gn_platform: "Web · Free",
+        cc_tag: "Games · Cards",
+        cc_desc: "Play the best Italian card games online with your friends: Cactus, Bisca, Dubito, Tre Sette, Scopa and Briscola.",
+        cc_platform: "Web · Coming soon",
         studio_eyebrow: "Studio",
         studio_title: "Small.<br><em>Deliberate.</em><br>Obsessed.",
         studio_p1: "<strong>Krevn Studio is an independent one-person studio based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.",
@@ -766,6 +775,9 @@
         gn_tag: "Musica · Playlist",
         gn_desc: "Smista i tuoi brani Spotify preferiti in cartelle per genere. Gira interamente nel tuo browser: nessun server, niente salvato. Accedi con la tua app Spotify o carica l'export dei tuoi dati.",
         gn_platform: "Web · Gratis",
+        cc_tag: "Giochi · Carte",
+        cc_desc: "Gioca online con gli amici ai migliori giochi di carte italiani: Cactus, Bisca, Dubito, Tre Sette, Scopa e Briscola.",
+        cc_platform: "Web · Prossimamente",
         studio_eyebrow: "Studio",
         studio_title: "Piccolo.<br><em>Deliberato.</em><br>Ossessivo.",
         studio_p1: "<strong>Krevn Studio è uno studio indipendente di una persona con base in Italia.</strong> Ogni app è concepita, progettata e costruita da zero — nessun template, nessuna scorciatoia.",
