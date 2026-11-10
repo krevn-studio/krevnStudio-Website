@@ -328,6 +328,19 @@
     .card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .card-links .btn { padding: 0.55rem 1rem; font-size: 0.68rem; }
 
+    /* ── WEBSITES ── */
+    .websites { padding-top: 0; }
+
+    /* Placeholder until icons/genres.png exists: swap the div for <img class="card-icon" src="icons/genres.png" ...> */
+    .card-icon-ph {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #1b3a2a, #10281D);
+      border: 1px solid var(--line);
+      color: var(--sage);
+    }
+    .card-icon-ph svg { width: 34px; height: 34px; }
+
     /* ── STUDIO ── */
     .studio {
       position: relative;
@@ -477,6 +490,7 @@
       .nav-links { display: none; }
       .hero, .apps, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .apps { padding-top: 4rem; padding-bottom: 5rem; }
+      .websites { padding-top: 0; }
       .apps-grid { grid-template-columns: 1fr; }
       .card { padding: 1.7rem; }
       footer { flex-direction: column; align-items: flex-start; }
@@ -498,6 +512,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#apps" data-i18n="nav_apps">Apps</a></li>
+        <li><a href="#websites" data-i18n="nav_websites">Websites</a></li>
         <li><a href="#studio" data-i18n="nav_studio">Studio</a></li>
         <li><a href="#support" data-i18n="nav_support">Support</a></li>
       </ul>
@@ -584,13 +599,44 @@
       <article class="card fade-up">
         <div class="card-top">
           <img class="card-icon" src="icons/rinnova.png" alt="Rinnova" width="72" height="72" loading="lazy">
-          <span class="pill pill-dev"><span class="pill-dot"></span><span data-i18n="status_dev">In development</span></span>
+          <span class="pill pill-live"><span class="pill-dot"></span><span data-i18n="status_live">Available now</span></span>
         </div>
         <div class="card-tag" data-i18n="ri_tag">Documents · Deadlines</div>
         <h3 class="card-title">Rinnova</h3>
         <p class="card-desc" data-i18n="ri_desc">Keep track of your documents and cards and see how many days are left before each one expires.</p>
         <div class="card-foot">
-          <span class="card-platform" data-i18n="ri_platform">iOS · Coming soon</span>
+          <span class="card-platform" data-i18n="ri_platform">iOS</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- WEBSITES -->
+  <section class="apps websites" id="websites">
+    <div class="section-head fade-up">
+      <div class="eyebrow" data-i18n="web_eyebrow">Websites</div>
+      <h2 class="section-title" data-i18n-html="web_title">Small tools.<br><em>On the web.</em></h2>
+    </div>
+
+    <div class="apps-grid">
+
+      <!-- Krevn Genres -->
+      <article class="card fade-up">
+        <div class="card-top">
+          <div class="card-icon card-icon-ph" role="img" aria-label="Krevn Genres">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <span class="pill pill-live"><span class="pill-dot"></span><span data-i18n="status_oss">Open source</span></span>
+        </div>
+        <div class="card-tag" data-i18n="gn_tag">Music · Playlists</div>
+        <h3 class="card-title">Krevn Genres</h3>
+        <p class="card-desc" data-i18n="gn_desc">Sorts your favourite Spotify tracks into folders by genre. It runs entirely in your browser: no server, nothing saved. Log in with your own Spotify app or upload your data export.</p>
+        <div class="card-foot">
+          <span class="card-platform" data-i18n="gn_platform">Web · Free</span>
+          <div class="card-links">
+            <a class="btn btn-ghost" href="https://github.com/krevn-studio/spotifyGenres" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
         </div>
       </article>
 
@@ -643,6 +689,7 @@
     <div class="foot-meta">
       <span data-i18n="footer_copy">© 2026 Krevn Studio · Italy</span>
       <a href="https://www.instagram.com/studiokrevn/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://github.com/krevn-studio" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
 
@@ -650,6 +697,7 @@
     const T = {
       en: {
         nav_apps: "Apps",
+        nav_websites: "Websites",
         nav_studio: "Studio",
         hero_eyebrow: "Independent studio · Italy",
         hero_title: "Apps built<br>with <em>intention</em>.",
@@ -661,7 +709,7 @@
         status_dev: "In development",
         mv_tag: "History · Storytelling",
         mv_desc: "Interactive micro-journeys through history. Choose an era, explore real events through dense narrative, collect medals. An entirely different way to experience the past — including an Echoes Mode that places you inside the story, written in first person.",
-        mv_platform: "iOS · Free + €2.99 one-time",
+        mv_platform: "iOS · €0.99",
         ae_tag: "Fitness · Training",
         ae_desc: "The training app that bridges weights, powerbuilding, and calisthenics in one coherent system. Real-time muscle fatigue tracking, an RPG-style skill tree for progressions, and structured programming built around how your body actually recovers.",
         ae_platform: "iPhone · Android",
@@ -670,7 +718,13 @@
         re_platform: "iOS · Coming soon",
         ri_tag: "Documents · Deadlines",
         ri_desc: "Keep track of your documents and cards and see how many days are left before each one expires.",
-        ri_platform: "iOS · Coming soon",
+        ri_platform: "iOS",
+        web_eyebrow: "Websites",
+        web_title: "Small tools.<br><em>On the web.</em>",
+        status_oss: "Open source",
+        gn_tag: "Music · Playlists",
+        gn_desc: "Sorts your favourite Spotify tracks into folders by genre. It runs entirely in your browser: no server, nothing saved. Log in with your own Spotify app or upload your data export.",
+        gn_platform: "Web · Free",
         studio_eyebrow: "Studio",
         studio_title: "Small.<br><em>Deliberate.</em><br>Obsessed.",
         studio_p1: "<strong>Krevn Studio is an independent one-person studio based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.",
@@ -684,6 +738,7 @@
       },
       it: {
         nav_apps: "App",
+        nav_websites: "Siti web",
         nav_studio: "Studio",
         hero_eyebrow: "Studio indipendente · Italia",
         hero_title: "App costruite<br>con <em>intenzione</em>.",
@@ -695,7 +750,7 @@
         status_dev: "In sviluppo",
         mv_tag: "Storia · Narrazione",
         mv_desc: "Micro-viaggi interattivi attraverso la storia. Scegli un'epoca, esplora eventi reali attraverso una narrazione densa, colleziona medaglie. Un modo completamente diverso di vivere il passato — inclusa la Modalità Echoes che ti immerge nella storia in prima persona.",
-        mv_platform: "iOS · Gratis + €2.99 una tantum",
+        mv_platform: "iOS · €0,99",
         ae_tag: "Fitness · Allenamento",
         ae_desc: "L'app di allenamento che unisce pesi, powerbuilding e calistenia in un unico sistema coerente. Tracciamento in tempo reale della fatica muscolare, uno skill tree in stile RPG per le progressioni, e programmazione strutturata attorno al recupero reale del tuo corpo.",
         ae_platform: "iPhone · Android",
@@ -704,7 +759,13 @@
         re_platform: "iOS · Prossimamente",
         ri_tag: "Documenti · Scadenze",
         ri_desc: "Tieni traccia di documenti e tessere e guarda quanti giorni mancano alla scadenza di ognuno.",
-        ri_platform: "iOS · Prossimamente",
+        ri_platform: "iOS",
+        web_eyebrow: "Siti web",
+        web_title: "Piccoli strumenti.<br><em>Sul web.</em>",
+        status_oss: "Open source",
+        gn_tag: "Musica · Playlist",
+        gn_desc: "Smista i tuoi brani Spotify preferiti in cartelle per genere. Gira interamente nel tuo browser: nessun server, niente salvato. Accedi con la tua app Spotify o carica l'export dei tuoi dati.",
+        gn_platform: "Web · Gratis",
         studio_eyebrow: "Studio",
         studio_title: "Piccolo.<br><em>Deliberato.</em><br>Ossessivo.",
         studio_p1: "<strong>Krevn Studio è uno studio indipendente di una persona con base in Italia.</strong> Ogni app è concepita, progettata e costruita da zero — nessun template, nessuna scorciatoia.",
