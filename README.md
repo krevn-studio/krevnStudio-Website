@@ -20,9 +20,10 @@ Il sito ufficiale di Krevn Studio. Una sola pagina, bilingue (inglese e italiano
 
 ## Contenuto
 
-- **App**: Micro Viaggi, Aethel, Relics, Rinnova, Pixel Routines
+- **App**: Micro Viaggi del Tempo, Aethel, Relics, Rinnova, Pixel Routines, Nook
 - **Siti web**: [Vibely for Spotify](https://github.com/krevn-studio/spotifyGenres) (open source) e Bora (in sviluppo)
-- **Team**: Giovanni Mattia Torrente (Founder, CEO), Gabriele Serli, Claudio Amendola
+- **Team**: Giovanni Mattia Torrente (Founder, CEO), Gabriele Serli e Claudio Amendola (Co-CTO)
+- **Sponsor**: chi sostiene lo studio
 - **Supporto**: contatti e link social
 
 ## Stack
