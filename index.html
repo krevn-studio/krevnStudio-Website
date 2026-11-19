@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krevn Studio</title>
-  <meta name="description" content="Krevn Studio — independent studio behind Micro Viaggi del Tempo, Aethel, Relics, Rinnova, Pixel Routines and Nook.">
+  <meta name="description" content="Krevn Studio is a small independent studio from Italy: apps for iPhone and Android, plus tools for the web and the desktop.">
   <meta name="theme-color" content="#061713">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krevn-studio.pages.dev/">
   <meta property="og:title" content="Krevn Studio">
-  <meta property="og:description" content="Independent studio behind Micro Viaggi del Tempo, Aethel, Relics, Rinnova, Pixel Routines and Nook.">
+  <meta property="og:description" content="Krevn Studio is a small independent studio from Italy: apps for iPhone and Android, plus tools for the web and the desktop.">
   <meta property="og:image" content="https://krevn-studio.pages.dev/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
@@ -18,554 +18,348 @@
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <script>document.documentElement.classList.add('js');</script>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#061713;--green:#0E241B;--line:rgba(239,226,196,.18);--cream:#EFE2C4;--paper:#F4ECD8;--sage:#9DB07C;--leaf:#5E7E55;--ink:#10281D;--ink-soft:#4B5E4C;--muted:#A2AE9C;--soft:#C9CDBE;--ink-line:rgba(16,40,29,.18)}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;overflow-x:clip}
-    body{background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    section[id]{scroll-margin-top:4.5rem}
-    .wrap{max-width:1280px;margin:0 auto;padding:0 4rem}
-    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sage)}
+    :root{--night:#061713;--forest:#0E241B;--cream:#EFE2C4;--paper:#F4ECD8;--sage:#9DB07C;--leaf:#4F6B47;--ink:#10281D;--ink2:#4B5E4C;--mute:#A2AE9C}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--night);color:var(--cream);font:400 1.125rem/1.6 'Newsreader',Georgia,serif;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+    a:hover{color:var(--sage)}
+    .wrap{max-width:68rem;margin:0 auto;padding:0 2rem}
+    .small{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.8125rem;line-height:1.45}
 
-    /* NAV */
-    nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(6,23,19,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.9rem;padding-bottom:.9rem}
-    .nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500}
-    .nav-brand img{width:32px;height:32px}
-    .nav-right{display:flex;align-items:center;gap:2rem}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{font-size:.74rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--cream);transition:color .25s}
-    .nav-links a:hover{color:var(--sage)}
-    .lang-toggle{font-family:inherit;font-size:.7rem;font-weight:500;letter-spacing:.18em;background:none;border:0;border-bottom:1px solid var(--sage);color:var(--cream);padding:.2rem 0;cursor:pointer}
-    .lang-toggle:hover{color:var(--sage)}
+    header .wrap{display:flex;align-items:center;gap:2rem;padding-top:1.5rem;padding-bottom:1.5rem}
+    .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-size:1.25rem;font-weight:500}
+    .brand img{width:28px;height:28px}
+    header nav{margin-left:auto;display:flex;gap:1.5rem}
+    header nav a{text-decoration:none;color:var(--mute)}
+    header nav a:hover{color:var(--cream)}
+    #lang{font:inherit;background:none;border:1px solid rgba(239,226,196,.35);color:var(--cream);padding:.15rem .5rem;cursor:pointer}
+    #lang:hover{border-color:var(--cream)}
 
-    /* HERO */
-    .hero{position:relative;overflow:clip;background:radial-gradient(900px 600px at 88% 0%,rgba(94,126,85,.3),transparent 60%),var(--bg)}
-    .hero .wrap{padding-top:11rem;padding-bottom:8rem;position:relative}
-    .hero-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(3.2rem,10.5vw,8.25rem);line-height:.92;letter-spacing:-.015em;max-width:1000px}
-    .hero-title em{font-style:italic;font-weight:300;color:var(--sage)}
-    .hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:4rem;margin-top:5rem}
-    .hero-sub{max-width:32rem;font-size:1.2rem;line-height:1.6;color:var(--soft)}
-    .hero-link{flex:none;font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--sage);padding-bottom:4px;transition:color .25s}
-    .hero-link:hover{color:var(--sage)}
-    .hero .sprig{position:absolute;right:3rem;top:9rem;width:300px;opacity:.1;pointer-events:none}
+    .intro{position:relative;overflow:hidden}
+    .intro .wrap{padding-top:5rem;padding-bottom:6rem}
+    .intro p{max-width:34rem}
+    .intro .lead{font-size:clamp(1.6rem,3.4vw,2.35rem);line-height:1.28;font-weight:400;letter-spacing:-.005em}
+    .intro .lead+p{margin-top:1.5rem;color:var(--mute)}
+    .sprig{position:absolute;right:max(2rem,calc(50% - 30rem));top:2.5rem;width:150px;color:var(--sage);opacity:.55}
 
-    /* BANDS */
-    .band{padding:7rem 0 5.5rem}
-    .band-paper{background:var(--paper);color:var(--ink)}
-    .band-green{background:var(--green)}
-    .band-dark{background:var(--bg)}
-    .band-head{display:flex;justify-content:space-between;align-items:baseline;gap:2rem;margin-bottom:2.5rem}
-    .band-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.8rem,6.9vw,5.5rem);line-height:1}
-    .band-title em{font-style:italic;font-weight:300}
-    .band-paper .band-title em{color:var(--leaf)}
-    .band-green .band-title em,.band-dark .band-title em{color:var(--sage)}
-    .band-note{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-align:right}
-    .band-paper .band-note{color:var(--ink-soft)}
-    .band-green .band-note,.band-dark .band-note{color:var(--muted)}
+    .paper{background:var(--paper);color:var(--ink)}
+    .paper a:hover{color:var(--leaf)}
+    #work .wrap{padding-top:4.5rem;padding-bottom:5rem}
+    h2{font-size:1.75rem;font-weight:500;line-height:1.2}
+    #work h2{padding-bottom:.75rem;border-bottom:2px solid var(--ink)}
+    #work h2+ul{margin-bottom:4rem}
+    #work ul:last-child{margin-bottom:0}
+    #work ul{list-style:none}
+    .work{display:grid;grid-template-columns:56px minmax(0,1fr) 15rem;gap:1.5rem 2rem;padding:1.75rem 0;border-bottom:1px solid rgba(16,40,29,.2)}
+    .work img{border-radius:12.5px}
+    .work h3{font-size:1.6rem;font-weight:500;line-height:1.15;margin-bottom:.4rem}
+    .work-main p{color:var(--ink2);max-width:36rem}
+    .work-main .links{margin-top:.6rem;display:flex;gap:1.25rem;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.875rem;color:var(--ink)}
+    .work-meta{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.8125rem;line-height:1.4;display:grid;gap:.45rem;align-content:start;padding-top:.35rem}
+    .work-meta div{display:grid;grid-template-columns:4.5rem 1fr;gap:.5rem}
+    .work-meta dt{color:var(--ink2)}
+    .work-meta dd{color:var(--ink)}
+    .st-live::before{content:'';display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:#5E7E55;margin-right:.4rem}
+    .st-dev{color:var(--ink2)!important}
+    .st-oss::before{content:'';display:inline-block;width:.5rem;height:.5rem;border-radius:50%;border:1.5px solid #5E7E55;margin-right:.4rem;vertical-align:-.03em}
 
-    /* ENTRIES */
-    .entry{display:grid;grid-template-columns:120px 1fr 1fr;gap:3rem;padding:3rem 0;border-top:1px solid var(--line);align-items:start}
-    .band-paper .entry{border-top-color:var(--ink-line)}
-    .entry-icon{width:104px;height:104px;border-radius:22.4%}
-    .entry-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.2rem,4.4vw,4rem);line-height:.95}
-    .entry-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;margin-top:.5rem}
-    .band-paper .entry-sub{color:var(--leaf)}
-    .band-green .entry-sub{color:var(--sage)}
-    .entry-tag{margin-top:1rem;font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
-    .band-paper .entry-tag{color:var(--leaf)}
-    .band-green .entry-tag{color:var(--sage)}
-    .entry-tag .st{white-space:nowrap}
-    .entry-desc{font-size:1.06rem;line-height:1.65}
-    .band-paper .entry-desc{color:var(--ink-soft)}
-    .band-green .entry-desc{color:var(--muted)}
-    .entry-meta{margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;font-size:.82rem;align-items:center}
-    .band-paper .entry-meta{color:var(--ink-soft)}
-    .band-green .entry-meta{color:var(--muted)}
-    .entry-meta b{font-weight:500}
-    .band-paper .entry-meta b{color:var(--ink)}
-    .band-green .entry-meta b{color:var(--cream)}
-    .entry-meta a{text-decoration:none;padding-bottom:1px;transition:color .25s}
-    .band-paper .entry-meta a{color:var(--ink);border-bottom:1px solid var(--leaf)}
-    .band-paper .entry-meta a:hover{color:var(--leaf)}
-    .band-green .entry-meta a{color:var(--cream);border-bottom:1px solid var(--sage)}
-    .band-green .entry-meta a:hover{color:var(--sage)}
+    .cols .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;padding-top:4.5rem;padding-bottom:4.5rem}
+    .cols h2{font-size:1.25rem;margin-bottom:1rem;color:var(--sage)}
+    .people{list-style:none}
+    .people li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(239,226,196,.15)}
+    .people li:first-child{border-top:1px solid rgba(239,226,196,.15)}
+    .people span{color:var(--mute);text-align:right}
+    .cols p{color:var(--mute);max-width:28rem}
+    .cols p+p{margin-top:1rem}
+    .mail{font-size:1.5rem;color:var(--cream)}
+    .contact-links{display:flex;gap:1.25rem}
 
-    /* TEAM */
-    .person{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:2.2rem 0;border-top:1px solid var(--line);align-items:baseline}
-    .person-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.4rem);line-height:1}
-    .person-role{font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+    footer{border-top:1px solid rgba(239,226,196,.12);color:var(--mute)}
+    footer .wrap{padding-top:1.5rem;padding-bottom:2rem}
 
-    /* STUDIO */
-    .studio{position:relative;overflow:hidden}
-    .studio-inner{position:relative;display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;padding-top:8rem;padding-bottom:8rem}
-    .studio .eyebrow{color:var(--leaf);margin-bottom:1.4rem}
-    .studio-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.04}
-    .studio-title em{font-style:italic;color:var(--leaf);font-weight:300}
-    .studio-body p{font-size:1.04rem;color:var(--ink-soft);margin-bottom:1.4rem;line-height:1.85}
-    .studio-body p strong{color:var(--ink);font-weight:500}
-    .studio-body .studio-close{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--ink);line-height:1.3;margin-top:2rem}
-    .studio-ig{display:inline-block;margin-top:.5rem;font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--leaf);padding-bottom:3px;transition:color .25s}
-    .studio-ig:hover{color:var(--leaf)}
-    .studio .sprig{position:absolute;right:-60px;bottom:-40px;width:280px;opacity:.16;pointer-events:none}
-
-    /* SPONSORS */
-    .sponsors-sub{max-width:34rem;font-size:1.05rem;color:var(--muted);margin-bottom:2.5rem}
-    .sponsor{padding:1.6rem 0;border-top:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.1}
-    .sponsor:last-child{border-bottom:1px solid var(--line)}
-
-    /* SUPPORT */
-    .support{padding:7rem 0 6rem}
-    .support .eyebrow{margin-bottom:1rem}
-    .support-sub{max-width:32rem;margin-top:1.4rem;font-size:1.05rem;color:var(--muted)}
-    .support-mail{display:inline-block;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,4vw,2.8rem);font-weight:400;text-decoration:none;color:var(--cream);border-bottom:1px solid var(--sage);padding-bottom:4px;overflow-wrap:anywhere;transition:color .25s}
-    .support-mail:hover{color:var(--sage)}
-
-    /* FOOTER */
-    footer{border-top:1px solid var(--line)}
-    footer .wrap{padding-top:2.8rem;padding-bottom:2.8rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-    .foot-brand{display:flex;align-items:center;gap:.7rem;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500}
-    .foot-brand img{width:26px;height:26px}
-    .foot-meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.72rem;letter-spacing:.1em;color:var(--muted)}
-    .foot-meta a{text-decoration:none}
-    .foot-meta a:hover{color:var(--cream)}
-
-    /* REVEAL */
-    .js .fade-up{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
-    .js .fade-up.in{opacity:1;transform:none}
-
-    @media (max-width:960px){
-      .wrap{padding:0 2rem}
-      .entry{grid-template-columns:104px 1fr;gap:1.6rem 2rem}
-      .entry-body{grid-column:1/-1}
-      .studio-inner{grid-template-columns:1fr;gap:2.5rem;padding-top:5.5rem;padding-bottom:5.5rem}
-      .hero-row{flex-direction:column;align-items:flex-start;gap:2rem}
+    @media (max-width:820px){
+      .work{grid-template-columns:48px minmax(0,1fr);gap:1rem 1.25rem}
+      .work img{width:48px;height:48px;border-radius:10.7px}
+      .work-meta{grid-column:2}
+      .cols .wrap{grid-template-columns:1fr}
+      .sprig{width:96px;opacity:.35;top:1.5rem;right:1rem}
     }
-    @media (max-width:720px){
-      .wrap{padding:0 1.4rem}
-      .nav-links{display:none}
-      .hero .wrap{padding-top:8rem;padding-bottom:5rem}
-      .hero .sprig{width:200px;right:-40px;top:6rem}
-      .band{padding:4.5rem 0 3rem}
-      .band-head{flex-direction:column;gap:.6rem}
-      .band-note{text-align:left}
-      .entry{grid-template-columns:72px 1fr;padding:2.2rem 0}
-      .entry-icon{width:72px;height:72px}
-      .person{grid-template-columns:1fr;gap:.5rem}
-      footer .wrap{flex-direction:column;align-items:flex-start}
-      .studio .sprig{width:200px;right:-50px;opacity:.1}
+    @media (max-width:560px){
+      .wrap{padding:0 1.25rem}
+      header nav{display:none}
+      #lang{margin-left:auto}
+      .intro .wrap{padding-top:3rem;padding-bottom:4rem}
+      .work{grid-template-columns:40px minmax(0,1fr)}
+      .work img{width:40px;height:40px;border-radius:9px}
+      .work h3{font-size:1.4rem}
+      .sprig{display:none}
     }
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .fade-up{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
 
-  <nav>
+  <header>
     <div class="wrap">
-      <a href="#top" class="nav-brand"><img src="favicon.png" alt="">Krevn Studio</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#apps" data-i18n="nav_apps">Apps</a></li>
-          <li><a href="#websites" data-i18n="nav_websites">Websites</a></li>
-          <li><a href="#team" data-i18n="nav_team">Team</a></li>
-          <li><a href="#studio" data-i18n="nav_studio">Studio</a></li>
-          <li><a href="#sponsors" data-i18n="nav_sponsors">Sponsors</a></li>
-          <li><a href="#support" data-i18n="nav_support">Support</a></li>
-        </ul>
-        <button class="lang-toggle" id="langBtn" type="button" aria-label="Passa all'italiano">IT</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <svg class="sprig" viewBox="0 0 200 360" aria-hidden="true" fill="none">
-      <defs>
-        <path id="leafh" d="M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z"/>
-      </defs>
-      <path d="M100 356C94 270 106 190 100 14" stroke="#EFE2C4" stroke-width="3" stroke-linecap="round"/>
-      <g fill="#EFE2C4">
-        <use href="#leafh" transform="translate(98 300) rotate(-28)"/>
-        <use href="#leafh" transform="translate(102 262) rotate(-152)"/>
-        <use href="#leafh" transform="translate(98 218) rotate(-32)"/>
-        <use href="#leafh" transform="translate(102 176) rotate(-148)"/>
-        <use href="#leafh" transform="translate(99 132) rotate(-38)"/>
-        <use href="#leafh" transform="translate(101 92) rotate(-142)"/>
-        <use href="#leafh" transform="translate(100 50) rotate(-70) scale(.8)"/>
-      </g>
-    </svg>
-    <div class="wrap">
-      <div class="eyebrow" style="margin-bottom:2rem" data-i18n="hero_eyebrow">Independent studio · Italy</div>
-      <h1 class="hero-title" data-i18n-html="hero_title">Apps built<br>with <em>intention</em>.</h1>
-      <div class="hero-row">
-        <p class="hero-sub" data-i18n="hero_sub">Krevn Studio brings every app and project under one name: history, training, archives and everyday tools.</p>
-        <a href="#apps" class="hero-link" data-i18n="hero_cta">Explore the apps</a>
-      </div>
+      <a class="brand" href="./"><img src="favicon.png" alt="">Krevn Studio</a>
+      <nav class="small">
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#people" data-i18n="nav_people">People</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <button id="lang" class="small" type="button">IT</button>
     </div>
   </header>
 
-  <!-- APPS -->
-  <section class="band band-paper" id="apps">
-    <div class="wrap">
-      <div class="band-head fade-up">
-        <h2 class="band-title" data-i18n-html="apps_title">Six apps.<br><em>One studio.</em></h2>
-        <span class="band-note" data-i18n="apps_note">iOS · Android · Desktop</span>
-      </div>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/microviaggi.png" alt="Micro Viaggi del Tempo" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Micro Viaggi del Tempo</h3><p class="entry-sub">Piccoli viaggi. Grandi scoperte.</p>
-          <p class="entry-tag"><span data-i18n="mv_tag">History · Storytelling</span> — <span class="st" data-i18n="status_live">Available now</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="mv_desc">Interactive micro-journeys through history. Choose an era, explore real events through dense narrative, collect medals. An entirely different way to experience the past — including an Echoes Mode that places you inside the story, written in first person.</p>
-          <p class="entry-meta"><span data-i18n="mv_platform">iOS · €0.99</span><span><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></span><a href="https://apps.apple.com/it/app/micro-viaggi-del-tempo/id6769732967" target="_blank" rel="noopener">App Store ↗</a></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/aethel.png" alt="Aethel" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Aethel</h3><p class="entry-sub">Allenati con intelligenza.</p>
-          <p class="entry-tag"><span data-i18n="ae_tag">Fitness · Training</span> — <span class="st" data-i18n="status_live">Available now</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="ae_desc">The training app that bridges weights, powerbuilding, and calisthenics in one coherent system. Real-time muscle fatigue tracking, an RPG-style skill tree for progressions, and structured programming built around how your body actually recovers.</p>
-          <p class="entry-meta"><span data-i18n="ae_platform">iPhone · Android</span><span><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></span><a href="https://apps.apple.com/it/app/aethel/id6780602824" target="_blank" rel="noopener">App Store ↗</a><a href="https://play.google.com/store/apps/details?id=org.gianmattia.com.aethel" target="_blank" rel="noopener">Google Play ↗</a></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/rinnova.png" alt="Rinnova" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Rinnova</h3>
-          <p class="entry-tag"><span data-i18n="ri_tag">Documents · Deadlines</span> — <span class="st" data-i18n="status_live">Available now</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="ri_desc">Keep track of your documents and cards and see how many days are left before each one expires.</p>
-          <p class="entry-meta"><span data-i18n="ri_platform">iOS</span><span><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></span><a href="https://apps.apple.com/it/app/rinnova-scadenze-e-attestati/id6826930326" target="_blank" rel="noopener">App Store ↗</a></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/relics.png" alt="Relics" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Relics</h3>
-          <p class="entry-tag"><span data-i18n="re_tag">Archive · Objects</span> — <span class="st" data-i18n="status_dev">In development</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="re_desc">A digital archive of forgotten objects, dead technologies and lost civilizations. Over a hundred relics to explore, each with its own illustration and story.</p>
-          <p class="entry-meta"><span data-i18n="re_platform">iOS · Coming soon</span><span><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></span></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/pixelroutines.png" alt="Pixel Routines" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Pixel Routines</h3>
-          <p class="entry-tag"><span data-i18n="pr_tag">Automation · Shortcuts</span> — <span class="st" data-i18n="status_dev">In development</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="pr_desc">The phone that works on its own. A free Android app that runs automatic actions, like volume, brightness or Wi-Fi, when something happens: a time of day, a Bluetooth device, arriving at a place.</p>
-          <p class="entry-meta"><span data-i18n="pr_platform">Android</span><span><span data-i18n="dev_by">Developed by</span> <b>Claudio Amendola</b></span></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/nook.png" alt="Nook" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Nook</h3>
-          <p class="entry-tag"><span data-i18n="nk_tag">Sync · File transfer</span> — <span class="st" data-i18n="status_oss">Open source</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="nk_desc">Your folders, in sync across all your devices. Install Nook, run it on your own dedicated server, and it keeps the folders you choose aligned between computers, like MEGAsync but yours. It doubles as a file transfer tool.</p>
-          <p class="entry-meta"><span data-i18n="nk_platform">Windows · Linux · Free</span><span><span data-i18n="dev_by">Developed by</span> <b>Gabriele Serli</b></span></p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- WEBSITES -->
-  <section class="band band-green" id="websites">
-    <div class="wrap">
-      <div class="band-head fade-up">
-        <h2 class="band-title" data-i18n-html="web_title">Small tools.<br><em>On the web.</em></h2>
-        <span class="band-note" data-i18n="web_note">Browser tools</span>
-      </div>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/vibely.png" alt="Vibely for Spotify" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Vibely for Spotify</h3>
-          <p class="entry-tag"><span data-i18n="gn_tag">Music · Mood</span> — <span class="st" data-i18n="status_oss">Open source</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="gn_desc">Listens to a preview of your favourite Spotify tracks and sorts them into folders by mood: lonely, golden hour, feel good, party, dark. It runs entirely in your browser: no server, nothing saved.</p>
-          <p class="entry-meta"><span data-i18n="gn_platform">Web · Free</span><span><span data-i18n="dev_by">Developed by</span> <b>GianMattia Torrente</b></span><a href="https://krevn-spotify-organizer.pages.dev" target="_blank" rel="noopener" data-i18n="open_site">Open ↗</a><a href="https://github.com/krevn-studio/spotifyGenres" target="_blank" rel="noopener">GitHub ↗</a></p>
-        </div>
-      </article>
-      <article class="entry fade-up">
-        <img class="entry-icon" src="icons/bora.png" alt="Bora" width="104" height="104" loading="lazy">
-        <div>
-          <h3 class="entry-title">Bora</h3>
-          <p class="entry-tag"><span data-i18n="cc_tag">Games · Cards</span> — <span class="st" data-i18n="status_dev">In development</span></p>
-        </div>
-        <div class="entry-body">
-          <p class="entry-desc" data-i18n="cc_desc">Play the best Italian card games online with your friends: Cactus, Bisca, Dubito, Tre Sette, Scopa and Briscola. Add trained AI bots to the table to make every game more competitive.</p>
-          <p class="entry-meta"><span data-i18n="cc_platform">Web · Coming soon</span><span><span data-i18n="dev_by">Developed by</span> <b>Gabriele Serli</b></span></p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="band band-dark" id="team">
-    <div class="wrap">
-      <div class="band-head fade-up">
-        <h2 class="band-title" data-i18n-html="team_title">Three people.<br><em>One studio.</em></h2>
-        <span class="band-note" data-i18n="team_note">The people behind it</span>
-      </div>
-      <div class="person fade-up"><div class="person-name">Giovanni Mattia Torrente</div><div class="person-role" data-i18n="role_ceo">Founder · CEO</div></div>
-      <div class="person fade-up"><div class="person-name">Gabriele Serli</div><div class="person-role" data-i18n="role_cto">Developer · Co-CTO</div></div>
-      <div class="person fade-up"><div class="person-name">Claudio Amendola</div><div class="person-role" data-i18n="role_cto">Developer · Co-CTO</div></div>
-      <div style="border-top:1px solid var(--line)"></div>
-    </div>
-  </section>
-
-  <!-- STUDIO -->
-  <section class="studio band-paper" id="studio">
+  <section class="intro">
     <svg class="sprig" viewBox="0 0 200 360" aria-hidden="true" fill="none">
-      <defs>
-        <path id="leafs" d="M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z"/>
-      </defs>
-      <path d="M100 356C94 270 106 190 100 14" stroke="#10281D" stroke-width="3" stroke-linecap="round"/>
-      <g fill="#10281D">
-        <use href="#leafs" transform="translate(98 300) rotate(-28)"/>
-        <use href="#leafs" transform="translate(102 262) rotate(-152)"/>
-        <use href="#leafs" transform="translate(98 218) rotate(-32)"/>
-        <use href="#leafs" transform="translate(102 176) rotate(-148)"/>
-        <use href="#leafs" transform="translate(99 132) rotate(-38)"/>
-        <use href="#leafs" transform="translate(101 92) rotate(-142)"/>
-        <use href="#leafs" transform="translate(100 50) rotate(-70) scale(.8)"/>
-      </g>
-    </svg>
-    <div class="wrap studio-inner">
-      <div class="fade-up">
-        <div class="eyebrow" data-i18n="studio_eyebrow">Studio</div>
-        <h2 class="studio-title" data-i18n-html="studio_title">Small.<br><em>Deliberate.</em><br>Obsessed.</h2>
-      </div>
-      <div class="studio-body fade-up">
-        <p data-i18n-html="studio_p1"><strong>Krevn Studio is a small independent studio of three, based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.</p>
-        <p data-i18n-html="studio_p2">The name carries a certain weight on purpose. Each project under this label is meant to feel like an <strong>artifact</strong>: something made with enough care that it earns a place in your life, not just a slot on your homescreen.</p>
-        <p class="studio-close" data-i18n="studio_close">The studio is the umbrella. The apps are the work.</p>
-        <a class="studio-ig" href="https://www.instagram.com/studiokrevn/" target="_blank" rel="noopener">Instagram @studiokrevn ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPONSORS -->
-  <section class="band band-green" id="sponsors">
+        <defs><path id="leaf" d="M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z"/></defs>
+        <path d="M100 356C94 270 106 190 100 14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <g fill="currentColor">
+          <use href="#leaf" transform="translate(98 300) rotate(-28)"/>
+          <use href="#leaf" transform="translate(102 262) rotate(-152)"/>
+          <use href="#leaf" transform="translate(98 218) rotate(-32)"/>
+          <use href="#leaf" transform="translate(102 176) rotate(-148)"/>
+          <use href="#leaf" transform="translate(99 132) rotate(-38)"/>
+          <use href="#leaf" transform="translate(101 92) rotate(-142)"/>
+          <use href="#leaf" transform="translate(100 50) rotate(-70) scale(.8)"/>
+        </g>
+      </svg>
     <div class="wrap">
-      <div class="band-head fade-up">
-        <h2 class="band-title" data-i18n-html="sp_title">With the help<br><em>of friends.</em></h2>
-        <span class="band-note" data-i18n="sp_note">Sponsors</span>
-      </div>
-      <p class="sponsors-sub fade-up" data-i18n="sp_sub">Thank you to the people who believe in the studio and support its work.</p>
-      <div class="sponsor fade-up">Daniel Cannoni</div>
-      <div class="sponsor fade-up">Giovanna Galuppo</div>
-      <div class="sponsor fade-up">Attilio Nikolas Romeo</div>
-      <div class="sponsor fade-up">Nicolò di Tomaso</div>
+      <p class="lead" data-i18n="intro">Krevn Studio is a small independent studio from Italy. There are three of us, and we make apps for iPhone and Android, plus a few tools for the web and the desktop.</p>
+      <p data-i18n="intro2">Each project is designed and written by one of us, start to finish. Below is everything we have released or are working on.</p>
     </div>
   </section>
 
-  <!-- SUPPORT -->
-  <section class="support band-dark" id="support">
-    <div class="wrap fade-up">
-      <div class="eyebrow" data-i18n="support_eyebrow">Support</div>
-      <h2 class="band-title" data-i18n-html="support_title">Need help?<br><em>Send an email.</em></h2>
-      <p class="support-sub" data-i18n="support_sub">For questions, bugs or feedback on any of the apps, write to this address. Mention the app name and your device.</p>
-      <a class="support-mail" href="mailto:krevnstudio@gmail.com">krevnstudio@gmail.com</a>
-    </div>
-  </section>
-
-  <footer>
+  <section class="paper" id="work">
     <div class="wrap">
-      <div class="foot-brand"><img src="favicon.png" alt="">Krevn Studio</div>
-      <div class="foot-meta">
-        <span data-i18n="footer_copy">© 2026 Krevn Studio · Italy</span>
-        <a href="https://www.instagram.com/studiokrevn/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://github.com/krevn-studio" target="_blank" rel="noopener">GitHub</a>
+      <h2 data-i18n="h_apps">Apps</h2>
+      <ul>
+        <li class="work">
+          <img src="icons/microviaggi.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Micro Viaggi del Tempo</h3>
+            <p data-i18n="mv_d">Short trips through history. Pick an era, read what really happened and collect medals along the way. Echoes mode tells the same events in first person.</p><p class="links"><a href="https://apps.apple.com/it/app/micro-viaggi-del-tempo/id6769732967" target="_blank" rel="noopener">App Store</a></p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-live" data-i18n="st_live">Available</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="mv_p">iPhone · €0.99</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>GianMattia Torrente</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/aethel.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Aethel</h3>
+            <p data-i18n="ae_d">Weights, powerbuilding and calisthenics in one training app. It tracks how tired each muscle is and lays out progressions as a skill tree.</p><p class="links"><a href="https://apps.apple.com/it/app/aethel/id6780602824" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=org.gianmattia.com.aethel" target="_blank" rel="noopener">Google Play</a></p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-live" data-i18n="st_live">Available</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="ae_p">iPhone · Android</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>GianMattia Torrente</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/rinnova.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Rinnova</h3>
+            <p data-i18n="ri_d">Write down when your documents, cards and certificates expire, and see how many days you have left.</p><p class="links"><a href="https://apps.apple.com/it/app/rinnova-scadenze-e-attestati/id6826930326" target="_blank" rel="noopener">App Store</a></p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-live" data-i18n="st_live">Available</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="ri_p">iPhone</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>GianMattia Torrente</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/relics.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Relics</h3>
+            <p data-i18n="re_d">An archive of forgotten objects, dead technologies and lost civilizations. Over a hundred relics, each with its own illustration and story.</p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-dev" data-i18n="st_dev">In development</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="re_p">iPhone</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>GianMattia Torrente</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/pixelroutines.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Pixel Routines</h3>
+            <p data-i18n="pr_d">Automations for Android. It changes volume, brightness or Wi-Fi when something happens: a time of day, a Bluetooth device, arriving somewhere.</p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-dev" data-i18n="st_dev">In development</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="pr_p">Android · Free</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>Claudio Amendola</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/nook.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Nook</h3>
+            <p data-i18n="nk_d">Keeps the folders you choose in sync across your computers, through a server you run yourself. It also works for moving files from one machine to another.</p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-oss" data-i18n="st_oss">Open source</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="nk_p">Windows · Linux · Free</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>Gabriele Serli</dd></div>
+          </dl>
+        </li>
+      </ul>
+      <h2 data-i18n="h_web">On the web</h2>
+      <ul>
+        <li class="work">
+          <img src="icons/vibely.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Vibely for Spotify</h3>
+            <p data-i18n="gn_d">Listens to a preview of the songs you liked on Spotify and sorts them into folders by mood. Everything runs in your browser and nothing is saved.</p><p class="links"><a href="https://krevn-spotify-organizer.pages.dev" target="_blank" rel="noopener" data-i18n="open">Open the site</a><a href="https://github.com/krevn-studio/spotifyGenres" target="_blank" rel="noopener">GitHub</a></p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-oss" data-i18n="st_oss">Open source</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="gn_p">Browser · Free</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>GianMattia Torrente</dd></div>
+          </dl>
+        </li>
+        <li class="work">
+          <img src="icons/bora.png" alt="" width="56" height="56" loading="lazy">
+          <div class="work-main">
+            <h3>Bora</h3>
+            <p data-i18n="cc_d">Italian card games online with your friends: Scopa, Briscola, Tre Sette, Bisca, Dubito and Cactus. You can seat AI bots at the table too.</p>
+          </div>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_status">Status</dt><dd class="st-dev" data-i18n="st_dev">In development</dd></div>
+            <div><dt data-i18n="m_where">Runs on</dt><dd data-i18n="cc_p">Browser</dd></div>
+            <div><dt data-i18n="m_by">Made by</dt><dd>Gabriele Serli</dd></div>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cols">
+    <div class="wrap">
+      <div id="people">
+        <h2 data-i18n="h_people">People</h2>
+        <ul class="people">
+          <li>Giovanni Mattia Torrente <span data-i18n="r_ceo">Founder, CEO</span></li>
+          <li>Gabriele Serli <span data-i18n="r_cto">Developer, co-CTO</span></li>
+          <li>Claudio Amendola <span data-i18n="r_cto">Developer, co-CTO</span></li>
+        </ul>
+        <h2 style="margin-top:2.5rem" data-i18n="h_thanks">Thanks</h2>
+        <p data-i18n="thanks">The studio is supported by Daniel Cannoni, Giovanna Galuppo, Attilio Nikolas Romeo and Nicolò di Tomaso.</p>
+      </div>
+      <div id="contact">
+        <h2 data-i18n="h_contact">Contact</h2>
+        <p data-i18n="contact">For help with an app, bugs or anything else, write to us. Tell us which app and which phone you are using.</p>
+        <p><a class="mail" href="mailto:krevnstudio@gmail.com">krevnstudio@gmail.com</a></p>
+        <p class="contact-links small"><a href="https://www.instagram.com/studiokrevn/" target="_blank" rel="noopener">Instagram</a><a href="https://github.com/krevn-studio" target="_blank" rel="noopener">GitHub</a></p>
       </div>
     </div>
+  </section>
+
+  <footer class="small">
+    <div class="wrap" data-i18n="foot">© 2026 Krevn Studio, Italy</div>
   </footer>
 
   <script>
     const T = {
-      en: {
-        nav_apps: "Apps",
-        nav_websites: "Websites",
-        nav_studio: "Studio",
-        hero_eyebrow: "Independent studio · Italy",
-        hero_title: "Apps built<br>with <em>intention</em>.",
-        hero_sub: "Krevn Studio brings every app and project under one name: history, training, archives and everyday tools.",
-        hero_cta: "Explore the apps",
-        apps_eyebrow: "Apps",
-        apps_title: "Six apps.<br><em>One studio.</em>",
-        apps_note: "iOS · Android · Desktop",
-        nk_tag: "Sync · File transfer",
-        nk_desc: "Your folders, in sync across all your devices. Install Nook, run it on your own dedicated server, and it keeps the folders you choose aligned between computers, like MEGAsync but yours. It doubles as a file transfer tool.",
-        nk_platform: "Windows · Linux · Free",
-        web_note: "Browser tools",
-        team_note: "The people behind it",
-        nav_sponsors: "Sponsors",
-        sp_title: "With the help<br><em>of friends.</em>",
-        sp_note: "Sponsors",
-        sp_sub: "Thank you to the people who believe in the studio and support its work.",
-        role_cto: "Developer · Co-CTO",
-        status_live: "Available now",
-        status_dev: "In development",
-        mv_tag: "History · Storytelling",
-        mv_desc: "Interactive micro-journeys through history. Choose an era, explore real events through dense narrative, collect medals. An entirely different way to experience the past — including an Echoes Mode that places you inside the story, written in first person.",
-        mv_platform: "iOS · €0.99",
-        ae_tag: "Fitness · Training",
-        ae_desc: "The training app that bridges weights, powerbuilding, and calisthenics in one coherent system. Real-time muscle fatigue tracking, an RPG-style skill tree for progressions, and structured programming built around how your body actually recovers.",
-        ae_platform: "iPhone · Android",
-        re_tag: "Archive · Objects",
-        re_desc: "A digital archive of forgotten objects, dead technologies and lost civilizations. Over a hundred relics to explore, each with its own illustration and story.",
-        re_platform: "iOS · Coming soon",
-        ri_tag: "Documents · Deadlines",
-        ri_desc: "Keep track of your documents and cards and see how many days are left before each one expires.",
-        ri_platform: "iOS",
-        web_eyebrow: "Websites",
-        web_title: "Small tools.<br><em>On the web.</em>",
-        status_oss: "Open source",
-        gn_tag: "Music · Mood",
-        gn_desc: "Listens to a preview of your favourite Spotify tracks and sorts them into folders by mood: lonely, golden hour, feel good, party, dark. It runs entirely in your browser: no server, nothing saved.",
-        gn_platform: "Web · Free",
-        open_site: "Open ↗",
-        cc_tag: "Games · Cards",
-        cc_desc: "Play the best Italian card games online with your friends: Cactus, Bisca, Dubito, Tre Sette, Scopa and Briscola. Add trained AI bots to the table to make every game more competitive.",
-        cc_platform: "Web · Coming soon",
-        studio_eyebrow: "Studio",
-        studio_title: "Small.<br><em>Deliberate.</em><br>Obsessed.",
-        studio_p1: "<strong>Krevn Studio is a small independent studio of three, based in Italy.</strong> Every app is conceived, designed, and built from scratch — no templates, no shortcuts.",
-        studio_p2: "The name carries a certain weight on purpose. Each project under this label is meant to feel like an <strong>artifact</strong>: something made with enough care that it earns a place in your life, not just a slot on your homescreen.",
-        studio_close: "The studio is the umbrella. The apps are the work.",
-        nav_support: "Support",
-        nav_team: "Team",
-        dev_by: "Developed by",
-        team_eyebrow: "Team",
-        team_title: "Three people.<br><em>One studio.</em>",
-        role_ceo: "Founder · CEO",
-        role_dev: "Developer",
-        pr_tag: "Automation · Shortcuts",
-        pr_desc: "The phone that works on its own. A free Android app that runs automatic actions, like volume, brightness or Wi-Fi, when something happens: a time of day, a Bluetooth device, arriving at a place.",
-        pr_platform: "Android",
-        support_eyebrow: "Support",
-        support_title: "Need help?<br><em>Send an email.</em>",
-        support_sub: "For questions, bugs or feedback on any of the apps, write to this address. Mention the app name and your device.",
-        footer_copy: "© 2026 Krevn Studio · Italy"
-      },
-      it: {
-        nav_apps: "App",
-        nav_websites: "Siti web",
-        nav_studio: "Studio",
-        hero_eyebrow: "Studio indipendente · Italia",
-        hero_title: "App costruite<br>con <em>intenzione</em>.",
-        hero_sub: "Krevn Studio raccoglie sotto un unico nome tutte le app e i progetti: storia, allenamento, archivi e strumenti di ogni giorno.",
-        hero_cta: "Scopri le app",
-        apps_eyebrow: "App",
-        apps_title: "Sei app.<br><em>Uno studio.</em>",
-        apps_note: "iOS · Android · Desktop",
-        nk_tag: "Sync · Trasferimento file",
-        nk_desc: "Le tue cartelle, sincronizzate su tutti i tuoi dispositivi. Installi Nook, lo fai girare su un tuo server dedicato e mantiene allineate le cartelle che scegli tra più computer, come MEGAsync ma tuo. Fa anche da file transfer.",
-        nk_platform: "Windows · Linux · Gratis",
-        web_note: "Strumenti nel browser",
-        team_note: "Le persone dietro lo studio",
-        nav_sponsors: "Sponsor",
-        sp_title: "Con l'aiuto<br><em>di amici.</em>",
-        sp_note: "Sponsor",
-        sp_sub: "Grazie a chi crede nello studio e ne sostiene il lavoro.",
-        role_cto: "Sviluppatore · Co-CTO",
-        status_live: "Disponibile",
-        status_dev: "In sviluppo",
-        mv_tag: "Storia · Narrazione",
-        mv_desc: "Micro-viaggi interattivi attraverso la storia. Scegli un'epoca, esplora eventi reali attraverso una narrazione densa, colleziona medaglie. Un modo completamente diverso di vivere il passato — inclusa la Modalità Echoes che ti immerge nella storia in prima persona.",
-        mv_platform: "iOS · €0,99",
-        ae_tag: "Fitness · Allenamento",
-        ae_desc: "L'app di allenamento che unisce pesi, powerbuilding e calistenia in un unico sistema coerente. Tracciamento in tempo reale della fatica muscolare, uno skill tree in stile RPG per le progressioni, e programmazione strutturata attorno al recupero reale del tuo corpo.",
-        ae_platform: "iPhone · Android",
-        re_tag: "Archivio · Oggetti",
-        re_desc: "Un archivio digitale di oggetti dimenticati, tecnologie scomparse e civiltà perdute. Oltre cento reperti da esplorare, ciascuno con la sua illustrazione e la sua storia.",
-        re_platform: "iOS · Prossimamente",
-        ri_tag: "Documenti · Scadenze",
-        ri_desc: "Tieni traccia di documenti e tessere e guarda quanti giorni mancano alla scadenza di ognuno.",
-        ri_platform: "iOS",
-        web_eyebrow: "Siti web",
-        web_title: "Piccoli strumenti.<br><em>Sul web.</em>",
-        status_oss: "Open source",
-        gn_tag: "Musica · Mood",
-        gn_desc: "Ascolta un'anteprima dei tuoi brani Spotify preferiti e li divide in cartelle per mood: lonely, golden hour, feel good, party, dark. Gira interamente nel tuo browser: nessun server, niente salvato.",
-        gn_platform: "Web · Gratis",
-        open_site: "Apri ↗",
-        cc_tag: "Giochi · Carte",
-        cc_desc: "Gioca online con gli amici ai migliori giochi di carte italiani: Cactus, Bisca, Dubito, Tre Sette, Scopa e Briscola. Puoi aggiungere al tavolo bot IA addestrati per rendere le partite più competitive.",
-        cc_platform: "Web · Prossimamente",
-        studio_eyebrow: "Studio",
-        studio_title: "Piccolo.<br><em>Deliberato.</em><br>Ossessivo.",
-        studio_p1: "<strong>Krevn Studio è un piccolo studio indipendente di tre persone, con base in Italia.</strong> Ogni app è concepita, progettata e costruita da zero — nessun template, nessuna scorciatoia.",
-        studio_p2: "Il nome porta un certo peso di proposito. Ogni progetto sotto questo marchio è pensato per sembrare un <strong>artefatto</strong>: qualcosa fatto con cura sufficiente da guadagnarsi un posto nella tua vita, non solo uno slot sulla homescreen.",
-        studio_close: "Lo studio è l'ombrello. Le app sono il lavoro.",
-        nav_support: "Supporto",
-        nav_team: "Team",
-        dev_by: "Sviluppo:",
-        team_eyebrow: "Team",
-        team_title: "Tre persone.<br><em>Uno studio.</em>",
-        role_ceo: "Fondatore · CEO",
-        role_dev: "Sviluppatore",
-        pr_tag: "Automazione · Comandi",
-        pr_desc: "Il telefono che lavora da solo. Un'app Android gratuita che esegue azioni automatiche, come volume, luminosità o Wi-Fi, quando succede qualcosa: un orario, un Bluetooth, l'arrivo in un luogo.",
-        pr_platform: "Android",
-        support_eyebrow: "Supporto",
-        support_title: "Serve aiuto?<br><em>Scrivi una mail.</em>",
-        support_sub: "Per domande, bug o feedback su una qualsiasi app, scrivi a questo indirizzo. Indica il nome dell'app e il tuo dispositivo.",
-        footer_copy: "© 2026 Krevn Studio · Italia"
-      }
-    };
-
-    const btn = document.getElementById('langBtn');
-
-    function applyLang(lang) {
-      const t = T[lang];
+  "en": {
+    "st_live": "Available",
+    "st_dev": "In development",
+    "st_oss": "Open source",
+    "m_status": "Status",
+    "m_where": "Runs on",
+    "m_by": "Made by",
+    "open": "Open the site",
+    "nav_work": "Work",
+    "nav_people": "People",
+    "nav_contact": "Contact",
+    "intro": "Krevn Studio is a small independent studio from Italy. There are three of us, and we make apps for iPhone and Android, plus a few tools for the web and the desktop.",
+    "intro2": "Each project is designed and written by one of us, start to finish. Below is everything we have released or are working on.",
+    "h_apps": "Apps",
+    "h_web": "On the web",
+    "h_people": "People",
+    "r_ceo": "Founder, CEO",
+    "r_cto": "Developer, co-CTO",
+    "h_thanks": "Thanks",
+    "thanks": "The studio is supported by Daniel Cannoni, Giovanna Galuppo, Attilio Nikolas Romeo and Nicolò di Tomaso.",
+    "h_contact": "Contact",
+    "contact": "For help with an app, bugs or anything else, write to us. Tell us which app and which phone you are using.",
+    "foot": "© 2026 Krevn Studio, Italy",
+    "mv_d": "Short trips through history. Pick an era, read what really happened and collect medals along the way. Echoes mode tells the same events in first person.",
+    "mv_p": "iPhone · €0.99",
+    "ae_d": "Weights, powerbuilding and calisthenics in one training app. It tracks how tired each muscle is and lays out progressions as a skill tree.",
+    "ae_p": "iPhone · Android",
+    "ri_d": "Write down when your documents, cards and certificates expire, and see how many days you have left.",
+    "ri_p": "iPhone",
+    "re_d": "An archive of forgotten objects, dead technologies and lost civilizations. Over a hundred relics, each with its own illustration and story.",
+    "re_p": "iPhone",
+    "pr_d": "Automations for Android. It changes volume, brightness or Wi-Fi when something happens: a time of day, a Bluetooth device, arriving somewhere.",
+    "pr_p": "Android · Free",
+    "nk_d": "Keeps the folders you choose in sync across your computers, through a server you run yourself. It also works for moving files from one machine to another.",
+    "nk_p": "Windows · Linux · Free",
+    "gn_d": "Listens to a preview of the songs you liked on Spotify and sorts them into folders by mood. Everything runs in your browser and nothing is saved.",
+    "gn_p": "Browser · Free",
+    "cc_d": "Italian card games online with your friends: Scopa, Briscola, Tre Sette, Bisca, Dubito and Cactus. You can seat AI bots at the table too.",
+    "cc_p": "Browser"
+  },
+  "it": {
+    "st_live": "Disponibile",
+    "st_dev": "In sviluppo",
+    "st_oss": "Open source",
+    "m_status": "Stato",
+    "m_where": "Dove",
+    "m_by": "Di",
+    "open": "Apri il sito",
+    "nav_work": "Lavori",
+    "nav_people": "Persone",
+    "nav_contact": "Contatti",
+    "intro": "Krevn Studio è un piccolo studio indipendente italiano. Siamo in tre e facciamo app per iPhone e Android, più qualche strumento per il web e per il computer.",
+    "intro2": "Ogni progetto lo progetta e lo scrive uno di noi, dall'inizio alla fine. Qui sotto c'è tutto quello che abbiamo pubblicato o che stiamo facendo.",
+    "h_apps": "App",
+    "h_web": "Sul web",
+    "h_people": "Persone",
+    "r_ceo": "Fondatore, CEO",
+    "r_cto": "Sviluppatore, co-CTO",
+    "h_thanks": "Grazie",
+    "thanks": "Lo studio è sostenuto da Daniel Cannoni, Giovanna Galuppo, Attilio Nikolas Romeo e Nicolò di Tomaso.",
+    "h_contact": "Contatti",
+    "contact": "Per aiuto con un'app, bug o qualsiasi altra cosa, scrivici. Dicci quale app e che telefono usi.",
+    "foot": "© 2026 Krevn Studio, Italia",
+    "mv_d": "Brevi viaggi nella storia. Scegli un'epoca, leggi cosa è successo davvero e raccogli medaglie lungo il percorso. La modalità Echoes racconta gli stessi fatti in prima persona.",
+    "mv_p": "iPhone · €0,99",
+    "ae_d": "Pesi, powerbuilding e calistenia in un'unica app di allenamento. Tiene conto di quanto è affaticato ogni muscolo e organizza le progressioni in un albero di abilità.",
+    "ae_p": "iPhone · Android",
+    "ri_d": "Segna quando scadono documenti, tessere e attestati e guarda quanti giorni mancano.",
+    "ri_p": "iPhone",
+    "re_d": "Un archivio di oggetti dimenticati, tecnologie scomparse e civiltà perdute. Oltre cento reperti, ognuno con la sua illustrazione e la sua storia.",
+    "re_p": "iPhone",
+    "pr_d": "Automazioni per Android. Cambia volume, luminosità o Wi-Fi quando succede qualcosa: un orario, un dispositivo Bluetooth, l'arrivo in un posto.",
+    "pr_p": "Android · Gratis",
+    "nk_d": "Tiene sincronizzate le cartelle che scegli tra i tuoi computer, passando da un server tuo. Serve anche per spostare file da una macchina all'altra.",
+    "nk_p": "Windows · Linux · Gratis",
+    "gn_d": "Ascolta un'anteprima dei brani che ti piacciono su Spotify e li divide in cartelle per mood. Gira tutto nel browser e non salva niente.",
+    "gn_p": "Browser · Gratis",
+    "cc_d": "Giochi di carte italiani online con gli amici: Scopa, Briscola, Tre Sette, Bisca, Dubito e Cactus. Al tavolo puoi far sedere anche dei bot IA.",
+    "cc_p": "Browser"
+  }
+};
+    const btn = document.getElementById('lang');
+    function setLang(l) {
       document.querySelectorAll('[data-i18n]').forEach(el => {
-        const v = t[el.dataset.i18n];
+        const v = T[l][el.dataset.i18n];
         if (v !== undefined) el.textContent = v;
       });
-      document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        const v = t[el.dataset.i18nHtml];
-        if (v !== undefined) el.innerHTML = v;
-      });
-      document.documentElement.lang = lang;
-      btn.textContent = lang === 'en' ? 'IT' : 'EN';
-      btn.setAttribute('aria-label', lang === 'en' ? "Passa all'italiano" : 'Switch to English');
+      document.documentElement.lang = l;
+      btn.textContent = l === 'en' ? 'IT' : 'EN';
+      btn.setAttribute('aria-label', l === 'en' ? "Passa all'italiano" : 'Switch to English');
     }
-
-    let current = (navigator.language || 'en').toLowerCase().startsWith('it') ? 'it' : 'en';
-    applyLang(current);
-    btn.addEventListener('click', () => {
-      current = current === 'en' ? 'it' : 'en';
-      applyLang(current);
-    });
-
-    const items = document.querySelectorAll('.fade-up');
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.08 });
-      items.forEach(el => io.observe(el));
-    } else {
-      items.forEach(el => el.classList.add('in'));
-    }
+    let lang = (navigator.language || 'en').toLowerCase().startsWith('it') ? 'it' : 'en';
+    setLang(lang);
+    btn.addEventListener('click', () => setLang(lang = lang === 'en' ? 'it' : 'en'));
   </script>
-
 </body>
 </html>

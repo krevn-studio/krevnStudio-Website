@@ -32,7 +32,7 @@ Il sito ufficiale di Krevn Studio. Una sola pagina, bilingue (inglese e italiano
 |---|---|
 | Markup, stile, script | un solo `index.html` |
 | Lingue | dizionari EN/IT in pagina (`data-i18n`, `data-i18n-html`) |
-| Font | Cormorant Garamond e Inter |
+| Font | Newsreader, e il font di sistema per i dettagli |
 | Hosting | Cloudflare Pages |
 
 ## Struttura
