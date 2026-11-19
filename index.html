@@ -14,6 +14,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
   <meta name="twitter:card" content="summary_large_image">
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,12 +80,72 @@
     footer{border-top:1px solid rgba(239,226,196,.12);color:var(--mute)}
     footer .wrap{padding-top:1.5rem;padding-bottom:2rem}
 
+
+    body{position:relative}
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    #leaves{position:absolute;left:0;top:0;pointer-events:none;z-index:20}
+
+    header nav a{position:relative}
+    header nav a::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+    header nav a:hover::after{transform:scaleX(1);transform-origin:left}
+
+    .intro{background:radial-gradient(60rem 40rem at 85% 110%,rgba(94,126,85,.22),transparent 70%),var(--night)}
+    .intro .wrap{min-height:min(86vh,760px);display:flex;flex-direction:column;justify-content:center;padding-top:3rem;padding-bottom:7rem}
+    .intro .lead{font-size:clamp(1.9rem,4.1vw,3.1rem);line-height:1.18;max-width:40rem}
+    .intro .sub{max-width:30rem}
+    .sprig{top:auto;bottom:-2px;right:max(1.5rem,calc(50% - 31rem));width:clamp(130px,17vw,230px);opacity:.9;overflow:visible}
+    .sway{transform-origin:100px 356px;animation:sway 7s ease-in-out infinite}
+    .sway.shake{animation:shake .9s cubic-bezier(.3,.7,.4,1)}
+    @keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.6deg)}}
+    @keyframes shake{0%{transform:rotate(0)}20%{transform:rotate(4deg)}45%{transform:rotate(-3deg)}70%{transform:rotate(1.5deg)}100%{transform:rotate(0)}}
+    .js .stem{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s .15s cubic-bezier(.6,0,.2,1) forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .lf-in{transform-box:fill-box;transform-origin:0 50%;transition:transform 1.1s cubic-bezier(.2,1.4,.4,1),opacity .5s}
+    .js .lf-in{animation:grow .9s var(--d) cubic-bezier(.2,1.4,.4,1) backwards}
+    @keyframes grow{from{transform:scale(0) rotate(-25deg)}}
+    .lf.gone .lf-in{transform:scale(0);opacity:0;transition:transform .2s,opacity .2s}
+
+    .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+    .split .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * 28ms + .25s)}
+    .split.on .w>span{transform:none}
+    .js .intro .sub{opacity:0;transform:translateY(10px);transition:opacity 1s 1.1s,transform 1s 1.1s cubic-bezier(.2,.8,.2,1)}
+    .js .intro.on .sub{opacity:1;transform:none}
+
+    #work h2{display:flex;align-items:flex-start;gap:.5rem}
+    #work h2 sup{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.75rem;font-weight:500;color:var(--leaf);margin-top:.35rem;letter-spacing:.05em}
+    .work{position:relative;border-bottom:0;transition:background-color .4s}
+    .work::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(16,40,29,.22);transform-origin:left;transition:transform 1.2s cubic-bezier(.7,0,.2,1)}
+    .work:hover{background:rgba(16,40,29,.035)}
+    .work img{transition:transform .7s cubic-bezier(.2,1.5,.4,1)}
+    .work:hover img{transform:rotate(-7deg) scale(1.08)}
+    .work h3{display:inline-flex;align-items:center;gap:0}
+    .work h3::after{content:'';width:0;height:.6em;opacity:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -16 62 32'%3E%3Cpath d='M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z' fill='%235E7E55'/%3E%3C/svg%3E") left center/contain no-repeat;transition:width .5s cubic-bezier(.2,.8,.2,1),margin .5s,opacity .4s}
+    .work:hover h3::after{width:1.1em;margin-left:.45em;opacity:1}
+    .work-main .links a{position:relative;text-decoration:none;padding-bottom:2px;background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;transition:background-size .45s cubic-bezier(.7,0,.2,1)}
+    .work-main .links a:hover{background-size:0 1px;background-position:right bottom}
+    .js .work::after{transform:scaleX(0)}
+    .js .work>*{opacity:0;transform:translateY(14px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+    .js .work>.work-main{transition-delay:.08s}.js .work>.work-meta{transition-delay:.16s}
+    .js .work.in::after{transform:none}
+    .js .work.in>*{opacity:1;transform:none}
+    .js .work.in:hover img{transform:rotate(-7deg) scale(1.08)}
+
+    .mail{background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;text-decoration:none;padding-bottom:3px;transition:background-size .5s cubic-bezier(.7,0,.2,1),color .3s}
+    .mail:hover{background-size:0 1px;background-position:right bottom}
+
+    @media (prefers-reduced-motion:reduce){
+      .sway,.js .stem,.js .lf-in{animation:none!important;stroke-dashoffset:0}
+      .split .w>span,.js .intro .sub,.js .work>*{transform:none!important;opacity:1!important;transition:none!important}
+      .js .work::after{transform:none}
+      #leaves{display:none}
+    }
+
     @media (max-width:820px){
       .work{grid-template-columns:48px minmax(0,1fr);gap:1rem 1.25rem}
       .work img{width:48px;height:48px;border-radius:10.7px}
       .work-meta{grid-column:2}
       .cols .wrap{grid-template-columns:1fr}
-      .sprig{width:96px;opacity:.35;top:1.5rem;right:1rem}
+      .sprig{width:110px;right:.75rem}
     }
     @media (max-width:560px){
       .wrap{padding:0 1.25rem}
@@ -94,11 +155,13 @@
       .work{grid-template-columns:40px minmax(0,1fr)}
       .work img{width:40px;height:40px;border-radius:9px}
       .work h3{font-size:1.4rem}
-      .sprig{display:none}
+      .intro .wrap{min-height:78vh;padding-bottom:9rem}
+      .sprig{width:92px}
     }
   </style>
 </head>
 <body>
+  <canvas id="leaves" aria-hidden="true"></canvas>
 
   <header>
     <div class="wrap">
@@ -115,26 +178,28 @@
   <section class="intro">
     <svg class="sprig" viewBox="0 0 200 360" aria-hidden="true" fill="none">
         <defs><path id="leaf" d="M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z"/></defs>
-        <path d="M100 356C94 270 106 190 100 14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        <g fill="currentColor">
-          <use href="#leaf" transform="translate(98 300) rotate(-28)"/>
-          <use href="#leaf" transform="translate(102 262) rotate(-152)"/>
-          <use href="#leaf" transform="translate(98 218) rotate(-32)"/>
-          <use href="#leaf" transform="translate(102 176) rotate(-148)"/>
-          <use href="#leaf" transform="translate(99 132) rotate(-38)"/>
-          <use href="#leaf" transform="translate(101 92) rotate(-142)"/>
-          <use href="#leaf" transform="translate(100 50) rotate(-70) scale(.8)"/>
+        <g class="sway">
+          <path class="stem" d="M100 356C94 270 106 190 100 14" stroke="currentColor" stroke-width="3" stroke-linecap="round" pathLength="1"/>
+          <g fill="currentColor">
+            <g class="lf" transform="translate(98 300) rotate(-28) scale(1)" data-a="-28" data-s="1"><use class="lf-in" href="#leaf" style="--d:0.55s"/></g>
+            <g class="lf" transform="translate(102 262) rotate(-152) scale(1)" data-a="-152" data-s="1"><use class="lf-in" href="#leaf" style="--d:0.7s"/></g>
+            <g class="lf" transform="translate(98 218) rotate(-32) scale(1)" data-a="-32" data-s="1"><use class="lf-in" href="#leaf" style="--d:0.85s"/></g>
+            <g class="lf" transform="translate(102 176) rotate(-148) scale(1)" data-a="-148" data-s="1"><use class="lf-in" href="#leaf" style="--d:1.0s"/></g>
+            <g class="lf" transform="translate(99 132) rotate(-38) scale(1)" data-a="-38" data-s="1"><use class="lf-in" href="#leaf" style="--d:1.15s"/></g>
+            <g class="lf" transform="translate(101 92) rotate(-142) scale(1)" data-a="-142" data-s="1"><use class="lf-in" href="#leaf" style="--d:1.3s"/></g>
+            <g class="lf" transform="translate(100 50) rotate(-70) scale(0.8)" data-a="-70" data-s="0.8"><use class="lf-in" href="#leaf" style="--d:1.45s"/></g>
+          </g>
         </g>
       </svg>
     <div class="wrap">
-      <p class="lead" data-i18n="intro">Krevn Studio is a small independent studio from Italy. There are three of us, and we make apps for iPhone and Android, plus a few tools for the web and the desktop.</p>
-      <p data-i18n="intro2">Each project is designed and written by one of us, start to finish. Below is everything we have released or are working on.</p>
+      <p class="lead split" data-i18n="intro">Krevn Studio is a small independent studio from Italy. There are three of us, and we make apps for iPhone and Android, plus a few tools for the web and the desktop.</p>
+      <p class="sub" data-i18n="intro2">Each project is designed and written by one of us, start to finish. Below is everything we have released or are working on.</p>
     </div>
   </section>
 
   <section class="paper" id="work">
     <div class="wrap">
-      <h2 data-i18n="h_apps">Apps</h2>
+      <h2><span data-i18n="h_apps">Apps</span><sup>06</sup></h2>
       <ul>
         <li class="work">
           <img src="icons/microviaggi.png" alt="" width="56" height="56" loading="lazy">
@@ -209,7 +274,7 @@
           </dl>
         </li>
       </ul>
-      <h2 data-i18n="h_web">On the web</h2>
+      <h2><span data-i18n="h_web">On the web</span><sup>02</sup></h2>
       <ul>
         <li class="work">
           <img src="icons/vibely.png" alt="" width="56" height="56" loading="lazy">
@@ -348,7 +413,7 @@
   }
 };
     const btn = document.getElementById('lang');
-    function setLang(l) {
+    let setLang = function (l) {
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const v = T[l][el.dataset.i18n];
         if (v !== undefined) el.textContent = v;
@@ -360,6 +425,125 @@
     let lang = (navigator.language || 'en').toLowerCase().startsWith('it') ? 'it' : 'en';
     setLang(lang);
     btn.addEventListener('click', () => setLang(lang = lang === 'en' ? 'it' : 'en'));
+    // ----- split lead into words for the reveal -----
+    function split(el) {
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words.map((w, i) => `<span class="w"><span style="--i:${i}">${w}</span></span>`).join(' ');
+    }
+    const lead = document.querySelector('.split');
+    const intro = document.querySelector('.intro');
+    const origSet = setLang;
+    setLang = (l) => { origSet(l); split(lead); };
+    split(lead);
+    requestAnimationFrame(() => requestAnimationFrame(() => { lead.classList.add('on'); intro.classList.add('on'); }));
+
+    // ----- rows draw in as they enter -----
+    const rows = document.querySelectorAll('.work');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2, rootMargin: '0px 0px -8% 0px' });
+      rows.forEach((r) => io.observe(r));
+    } else rows.forEach((r) => r.classList.add('in'));
+
+    // ----- falling leaves -----
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const cv = document.getElementById('leaves'), ctx = cv.getContext('2d');
+      const svg = document.querySelector('.sprig'), sway = svg.querySelector('.sway');
+      const els = [...svg.querySelectorAll('.lf')];
+      const LEAF = new Path2D('M0 0C14-22 40-22 58 0C40 22 14 22 0 0Z');
+      const RIB = new Path2D('M4 0C20-2 38-2 54 0');
+      const leaves = [];
+      const mouse = { x: -9999, y: -9999, vx: 0, vy: 0, t: 0 };
+      let W = 0, H = 0, ground = 0, wind = 0, lastY = scrollY, lastShake = 0;
+      const rnd = (a, b) => a + Math.random() * (b - a);
+
+      function size() {
+        const dpr = Math.min(devicePixelRatio || 1, 2);
+        W = document.documentElement.clientWidth;
+        ground = intro.offsetTop + intro.offsetHeight;
+        H = ground + 220;
+        cv.width = W * dpr; cv.height = H * dpr;
+        cv.style.width = W + 'px'; cv.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function drop(el, push = 0) {
+        if (!el || el.classList.contains('gone')) return;
+        const r = el.getBoundingClientRect();
+        const k = svg.getBoundingClientRect().width / 200 * (+el.dataset.s || 1);
+        el.classList.add('gone');
+        leaves.push({
+          x: r.left + r.width / 2, y: r.top + scrollY + r.height / 2,
+          vx: push + rnd(-.3, .3), vy: rnd(-.4, .2),
+          a: +el.dataset.a * Math.PI / 180, k, t: 0, ph: rnd(0, 6.28), f: rnd(.025, .045),
+          g: ground + rnd(8, 46), landed: false, life: 1, flip: 1
+        });
+        setTimeout(() => el.classList.remove('gone'), rnd(6000, 11000));
+      }
+      const pick = () => { const free = els.filter((e) => !e.classList.contains('gone')); return free[Math.floor(Math.random() * free.length)]; };
+      const loop = () => { if (!document.hidden && leaves.length < 22) drop(pick()); setTimeout(loop, rnd(2200, 4800)); };
+      setTimeout(() => { drop(pick()); setTimeout(() => drop(pick()), 700); loop(); }, 2400);
+
+      addEventListener('pointermove', (e) => {
+        const x = e.clientX, y = e.clientY + scrollY, now = performance.now();
+        const dt = Math.max(16, now - mouse.t);
+        mouse.vx = (x - mouse.x) / dt * 16; mouse.vy = (y - mouse.y) / dt * 16;
+        mouse.x = x; mouse.y = y; mouse.t = now;
+        const sr = svg.getBoundingClientRect();
+        const speed = Math.hypot(mouse.vx, mouse.vy);
+        if (speed > 6 && now - lastShake > 900 && e.clientX > sr.left - 20 && e.clientX < sr.right + 20 && e.clientY > sr.top && e.clientY < sr.bottom) {
+          lastShake = now;
+          sway.classList.remove('shake'); void sway.getBoundingClientRect(); sway.classList.add('shake');
+          drop(pick(), mouse.vx * .25);
+          if (speed > 14) setTimeout(() => drop(pick(), mouse.vx * .2), 120);
+        }
+      }, { passive: true });
+      sway.addEventListener('animationend', () => sway.classList.remove('shake'));
+      addEventListener('scroll', () => { wind += (scrollY - lastY) * .04; lastY = scrollY; }, { passive: true });
+      addEventListener('resize', size);
+      size();
+
+      (function frame() {
+        ctx.clearRect(0, 0, W, H);
+        wind *= .95; mouse.vx *= .9; mouse.vy *= .9;
+        for (let i = leaves.length - 1; i >= 0; i--) {
+          const l = leaves[i];
+          const dx = l.x - mouse.x, dy = l.y - mouse.y, d = Math.hypot(dx, dy);
+          const near = d < 130 ? 1 - d / 130 : 0;
+          if (!l.landed) {
+            l.t++;
+            const s = Math.sin(l.t * l.f + l.ph);
+            l.vy = Math.min(l.vy + .03, .95 + l.k * .5);
+            l.vx = l.vx * .97 + s * .05 + wind * .02 + near * mouse.vx * .06;
+            l.vy += near * mouse.vy * .04;
+            l.x += l.vx; l.y += l.vy * (.75 + .25 * Math.abs(s));
+            l.a += s * .022 + l.vx * .012;
+            l.flip = Math.cos(l.t * l.f * .8 + l.ph);
+            if (l.y >= l.g) { l.y = l.g; l.landed = true; l.rest = 520 + Math.random() * 300; }
+          } else {
+            l.a += (Math.round(l.a / Math.PI) * Math.PI + .25 - l.a) * .08;
+            l.flip += ((l.flip < 0 ? -1 : 1) - l.flip) * .1;
+            if (near > .35 && Math.hypot(mouse.vx, mouse.vy) > 4) { l.landed = false; l.vy = -rnd(1.5, 3); l.vx = mouse.vx * .3; l.g = ground + rnd(8, 46); }
+            if (--l.rest < 90) l.life = Math.max(0, l.rest / 90);
+            if (l.rest <= 0) { leaves.splice(i, 1); continue; }
+          }
+          if (l.x < -60 || l.x > W + 60 || l.y < -60) { leaves.splice(i, 1); continue; }
+          const onPaper = l.y > ground;
+          ctx.save();
+          ctx.globalAlpha = .92 * l.life;
+          ctx.translate(l.x, l.y); ctx.rotate(l.a); ctx.scale(l.k * .85, l.k * .85 * (.35 + .65 * Math.abs(l.flip)));
+          ctx.translate(-29, 0);
+          ctx.fillStyle = onPaper ? '#6F8C5F' : '#9DB07C';
+          ctx.fill(LEAF);
+          ctx.strokeStyle = onPaper ? 'rgba(16,40,29,.35)' : 'rgba(6,23,19,.45)'; ctx.lineWidth = 1.6 / l.k;
+          ctx.stroke(RIB);
+          ctx.restore();
+        }
+        requestAnimationFrame(frame);
+      })();
+      window.__leaves = leaves;
+    })();
+
   </script>
 </body>
 </html>
