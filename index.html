@@ -133,6 +133,23 @@
     .mail{background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;text-decoration:none;padding-bottom:3px;transition:background-size .5s cubic-bezier(.7,0,.2,1),color .3s}
     .mail:hover{background-size:0 1px;background-position:right bottom}
 
+
+    .intro.dusk{background:radial-gradient(60rem 40rem at 85% 110%,rgba(201,140,74,.2),transparent 70%),radial-gradient(40rem 30rem at 10% -10%,rgba(94,126,85,.18),transparent 70%),var(--night)}
+    .intro.night{background:radial-gradient(60rem 40rem at 85% 110%,rgba(94,126,85,.14),transparent 70%),#04110E}
+    #work{position:relative}
+    .vine{position:absolute;top:0;pointer-events:none;overflow:visible}
+    .vine path{fill:none;stroke:#5E7E55;stroke-width:1.6;stroke-linecap:round;transition:stroke-dashoffset .25s linear}
+    .vine .bud{fill:#6F8C5F}
+    .vine .bud>g>use{transform-box:fill-box;transform-origin:0 50%;transform:scale(0);transition:transform .9s cubic-bezier(.2,1.5,.4,1)}
+    .vine .bud.on>g>use{transform:scale(1)}
+    .vine .bud.on>g+g>use{transition-delay:.15s}
+    .vine .flower{fill:#EFE2C4;stroke:#C9A24A;stroke-width:.8}
+    .vine .flower circle{fill:#C9A24A;stroke:none}
+    .vine .flower>*{transform-box:view-box;transform-origin:0 0;scale:0;transition:scale .9s cubic-bezier(.2,1.5,.4,1)}
+    .vine .flower.on>*{scale:1}
+    .pv{position:fixed;left:0;top:0;width:128px;height:128px;z-index:40;pointer-events:none;opacity:0;will-change:transform,opacity}
+    .pv img{width:100%;height:100%;border-radius:22.4%;box-shadow:0 24px 50px -18px rgba(16,40,29,.55),0 2px 6px rgba(16,40,29,.15)}
+    .mag{display:inline-block}
     @media (prefers-reduced-motion:reduce){
       .sway,.js .stem,.js .lf-in{animation:none!important;stroke-dashoffset:0}
       .split .w>span,.js .intro .sub,.js .work>*{transform:none!important;opacity:1!important;transition:none!important}
@@ -456,6 +473,14 @@
       const mouse = { x: -9999, y: -9999, vx: 0, vy: 0, t: 0 };
       let W = 0, H = 0, ground = 0, wind = 0, lastY = scrollY, lastShake = 0;
       const rnd = (a, b) => a + Math.random() * (b - a);
+      const now = new Date(), hr = now.getHours(), mo = now.getMonth();
+      const night = hr >= 20 || hr < 6, dusk = (hr >= 17 && hr < 20) || (hr >= 6 && hr < 8);
+      intro.classList.add(night ? 'night' : dusk ? 'dusk' : 'day');
+      const autumnChance = mo >= 8 && mo <= 10 ? .75 : mo === 11 || mo === 0 || mo === 1 ? .35 : .12;
+      const AUTUMN = [[201, 162, 74], [181, 101, 58], [217, 180, 90], [160, 120, 60]];
+      const SAGE = [157, 176, 124], SAGE_P = [111, 140, 95];
+      const mix = (a, b, t) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',')})`;
+      const motes = [];
 
       function size() {
         const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -476,7 +501,8 @@
           x: r.left + r.width / 2, y: r.top + scrollY + r.height / 2,
           vx: push + rnd(-.3, .3), vy: rnd(-.4, .2),
           a: +el.dataset.a * Math.PI / 180, k, t: 0, ph: rnd(0, 6.28), f: rnd(.025, .045),
-          g: ground + rnd(8, 46), landed: false, life: 1, flip: 1
+          g: ground + rnd(8, 46), landed: false, life: 1, flip: 1,
+          to: Math.random() < autumnChance ? AUTUMN[Math.floor(Math.random() * AUTUMN.length)] : null
         });
         setTimeout(() => el.classList.remove('gone'), rnd(6000, 11000));
       }
@@ -502,9 +528,29 @@
       addEventListener('scroll', () => { wind += (scrollY - lastY) * .04; lastY = scrollY; }, { passive: true });
       addEventListener('resize', size);
       size();
+      for (let i = 0; i < (night ? 18 : 26); i++) motes.push({ x: rnd(0, W), y: rnd(60, ground - 20), vx: rnd(-.15, .15), vy: rnd(-.12, .05), ph: rnd(0, 6.28), r: night ? rnd(1.4, 2.4) : rnd(.6, 1.6) });
 
       (function frame() {
         ctx.clearRect(0, 0, W, H);
+        const tt = performance.now() / 1000;
+        for (const m of motes) {
+          const dx = m.x - mouse.x, dy = m.y - mouse.y, d = Math.hypot(dx, dy);
+          if (d < 110) { m.vx += dx / d * .04; m.vy += dy / d * .04; }
+          m.vx = m.vx * .985 + Math.sin(tt * .3 + m.ph) * .004 + wind * .004;
+          m.vy = m.vy * .985 + Math.cos(tt * .25 + m.ph) * .004;
+          m.x += m.vx; m.y += m.vy;
+          if (m.x < -10) m.x = W + 10; if (m.x > W + 10) m.x = -10;
+          if (m.y < 50) m.vy += .02; if (m.y > ground - 10) m.vy -= .02;
+          const pulse = .5 + .5 * Math.sin(tt * (night ? 1.6 : .8) + m.ph * 3);
+          if (night) {
+            const g = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 7);
+            g.addColorStop(0, `rgba(226,240,160,${.75 * pulse})`); g.addColorStop(1, 'rgba(226,240,160,0)');
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(m.x, m.y, m.r * 7, 0, 6.283); ctx.fill();
+          } else {
+            ctx.fillStyle = `rgba(239,226,196,${.12 + .22 * pulse})`;
+            ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.283); ctx.fill();
+          }
+        }
         wind *= .95; mouse.vx *= .9; mouse.vy *= .9;
         for (let i = leaves.length - 1; i >= 0; i--) {
           const l = leaves[i];
@@ -533,7 +579,8 @@
           ctx.globalAlpha = .92 * l.life;
           ctx.translate(l.x, l.y); ctx.rotate(l.a); ctx.scale(l.k * .85, l.k * .85 * (.35 + .65 * Math.abs(l.flip)));
           ctx.translate(-29, 0);
-          ctx.fillStyle = onPaper ? '#6F8C5F' : '#9DB07C';
+          const ct = l.to ? Math.min(1, l.t / 260) : 0;
+          ctx.fillStyle = mix(onPaper ? SAGE_P : SAGE, l.to || SAGE, ct * (onPaper ? .85 : 1));
           ctx.fill(LEAF);
           ctx.strokeStyle = onPaper ? 'rgba(16,40,29,.35)' : 'rgba(6,23,19,.45)'; ctx.lineWidth = 1.6 / l.k;
           ctx.stroke(RIB);
@@ -543,6 +590,115 @@
       })();
       window.__leaves = leaves;
     })();
+
+  
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // ----- a vine grows down the list as you scroll -----
+    (() => {
+      const sec = document.getElementById('work'), wrap = sec.querySelector('.wrap');
+      const NS = 'http://www.w3.org/2000/svg';
+      const v = document.createElementNS(NS, 'svg');
+      v.setAttribute('class', 'vine'); v.setAttribute('aria-hidden', 'true');
+      const path = document.createElementNS(NS, 'path');
+      v.appendChild(path); sec.appendChild(v);
+      let len = 0, H = 0, buds = [], flower = null;
+      const wave = (y) => 30 + Math.sin(y / 170) * 11 + Math.sin(y / 61) * 3;
+      const leafPair = (x, y, side, sc) => {
+        const g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'bud');
+        g.setAttribute('transform', `translate(${x} ${y})`);
+        g.innerHTML = `<g transform="rotate(${side > 0 ? -35 : -145}) scale(${sc})"><use href="#leaf"/></g><g transform="rotate(${side > 0 ? -150 : -30}) scale(${sc * .7})"><use href="#leaf"/></g>`;
+        v.appendChild(g); return g;
+      };
+      function build() {
+        [...v.querySelectorAll('.bud,.flower')].forEach((n) => n.remove());
+        buds = [];
+        const sr = sec.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+        const left = wr.left - sr.left - 30;
+        if (left < 6) { v.style.display = 'none'; return; }
+        v.style.display = ''; H = sec.offsetHeight;
+        v.style.left = left + 'px'; v.style.height = H + 'px';
+        v.setAttribute('viewBox', `0 0 60 ${H}`); v.setAttribute('width', 60); v.setAttribute('height', H);
+        let d = `M${wave(0)} 0`;
+        for (let y = 24; y <= H - 70; y += 24) d += ` L${wave(y).toFixed(1)} ${y}`;
+        path.setAttribute('d', d);
+        len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        document.querySelectorAll('#work .work, #work h2').forEach((el, i) => {
+          const y = el.getBoundingClientRect().top - sr.top + (el.tagName === 'H2' ? 14 : 34);
+          buds.push({ y, el: leafPair(wave(y), y, i % 2 ? 1 : -1, el.tagName === 'H2' ? .34 : .42) });
+        });
+        const fy = H - 70;
+        flower = document.createElementNS(NS, 'g');
+        flower.setAttribute('class', 'flower');
+        flower.setAttribute('transform', `translate(${wave(fy)} ${fy})`);
+        flower.innerHTML = [0, 72, 144, 216, 288].map((r) => `<ellipse rx="4.2" ry="8" cy="-8" transform="rotate(${r})"/>`).join('') + '<circle r="3.2"/>';
+        v.appendChild(flower);
+        update();
+      }
+      function update() {
+        if (!len) return;
+        const top = sec.getBoundingClientRect().top;
+        const p = reduce ? 1 : Math.min(1, Math.max(0, (innerHeight * .78 - top) / (H - 70)));
+        path.style.strokeDashoffset = len * (1 - p);
+        const reach = p * (H - 70);
+        buds.forEach((b) => b.el.classList.toggle('on', b.y < reach));
+        flower && flower.classList.toggle('on', p > .995);
+      }
+      addEventListener('scroll', update, { passive: true });
+      addEventListener('resize', build);
+      addEventListener('load', build);
+      build();
+    })();
+
+    // ----- the icon follows the cursor over a row -----
+    if (fine && !reduce) {
+      const pv = document.createElement('div');
+      pv.className = 'pv'; pv.innerHTML = '<img alt="">';
+      document.body.appendChild(pv);
+      const img = pv.firstChild;
+      let tx = 0, ty = 0, x = 0, y = 0, show = 0, target = 0, rot = 0;
+      rows.forEach((r) => {
+        r.addEventListener('mouseenter', () => { img.src = r.querySelector('img').src; target = 1; });
+        r.addEventListener('mouseleave', () => { target = 0; });
+      });
+      addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; if (!show) { x = tx; y = ty; } }, { passive: true });
+      addEventListener('scroll', () => { if (target) target = document.querySelector('.work:hover') ? 1 : 0; }, { passive: true });
+      (function f() {
+        const px = x; x += (tx - x) * .14; y += (ty - y) * .14;
+        rot += (Math.max(-16, Math.min(16, (x - px) * 1.4)) - rot) * .2;
+        show += (target - show) * .14;
+        pv.style.transform = `translate(${x + 26}px, ${y - 76}px) rotate(${rot}deg) scale(${.6 + .4 * show})`;
+        pv.style.opacity = show.toFixed(3);
+        requestAnimationFrame(f);
+      })();
+    }
+
+    // ----- magnetic controls -----
+    if (fine && !reduce) document.querySelectorAll('#lang, .mail, .links a, .contact-links a').forEach((el) => {
+      el.classList.add('mag');
+      el.style.transition = 'translate .5s cubic-bezier(.2,1.4,.4,1), background-size .45s cubic-bezier(.7,0,.2,1), color .3s, border-color .3s';
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.translate = `${(e.clientX - r.left - r.width / 2) * .28}px ${(e.clientY - r.top - r.height / 2) * .38}px`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.translate = ''; });
+    });
+
+    // ----- counts tick up -----
+    document.querySelectorAll('#work h2 sup').forEach((el) => {
+      const n = +el.textContent;
+      if (reduce || !('IntersectionObserver' in window)) return;
+      el.textContent = '00';
+      const io = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) return; io.disconnect();
+        const t0 = performance.now();
+        (function f(t) { const k = Math.min(1, (t - t0) / 900); el.textContent = String(Math.round(n * (1 - (1 - k) ** 3))).padStart(2, '0'); if (k < 1) requestAnimationFrame(f); })(t0);
+      });
+      io.observe(el);
+    });
 
   </script>
 </body>
