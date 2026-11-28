@@ -40,6 +40,7 @@ Il sito ufficiale di Krevn Studio. Una sola pagina, bilingue (inglese e italiano
 ```
 index.html     pagina, stili e traduzioni
 icons/         icone delle app e dei siti
+placeline/privacy/  informativa sulla privacy di Placeline (IT/EN), linkata dall'App Store
 logo.png       logo
 favicon.png    favicon
 og-image.png   anteprima per i social
